@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'HWCoreFramework_Example' do
+  pod 'HWCoreFramework', :path => '../'
+
+  target 'HWCoreFramework_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  end
+end

@@ -1,12 +1,10 @@
-use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
+platform :ios, '7.0'
 target 'HWCoreFramework_Example' do
   pod 'HWCoreFramework', :path => '../'
-
-  target 'HWCoreFramework_Tests' do
-    inherit! :search_paths
-
-    pod 'Specta'
-  pod 'Expecta'
-  end
+  pod 'Aspects'
+  pod 'Masonry'
+  pod 'UITableView+FDTemplateLayoutCell'
+  pod 'MJRefresh'
 end

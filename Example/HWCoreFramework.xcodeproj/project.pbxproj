@@ -30,7 +30,6 @@
 		3779C7351D0FFC88009122CD /* ic_mine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3779C7331D0FFC88009122CD /* ic_mine@3x.png */; };
 		37A378981D1008E500FDD444 /* HWCoreFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 37A378971D1008E500FDD444 /* HWCoreFramework.podspec */; };
 		37A3789B1D1009AF00FDD444 /* UIViewController+SLAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3789A1D1009AF00FDD444 /* UIViewController+SLAdd.m */; };
-		37A3789D1D100A9800FDD444 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37A3789C1D100A9800FDD444 /* Launch Screen.storyboard */; };
 		37A378A61D102CBD00FDD444 /* SLLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378A41D102CBD00FDD444 /* SLLoginController.m */; };
 		37A378A71D102CBD00FDD444 /* SLLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37A378A51D102CBD00FDD444 /* SLLoginController.xib */; };
 		37A378AD1D102E6200FDD444 /* SLHomeBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378AC1D102E6200FDD444 /* SLHomeBanner.m */; };
@@ -46,6 +45,9 @@
 		37A378E61D1166F900FDD444 /* SLHomeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378E51D1166F900FDD444 /* SLHomeCellModel.m */; };
 		37CE4BB21D12861400E2ED7F /* HWNetworkBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BB11D12861400E2ED7F /* HWNetworkBaseRequest.m */; };
 		37CE4BB51D128AF600E2ED7F /* HWTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BB41D128AF600E2ED7F /* HWTableSection.m */; };
+		37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BB71D1295A800E2ED7F /* UIButton+HWAdd.m */; };
+		37CE4BBB1D12B0B900E2ED7F /* UIViewController+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */; };
+		37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -87,7 +89,6 @@
 		37A378971D1008E500FDD444 /* HWCoreFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = HWCoreFramework.podspec; path = ../HWCoreFramework.podspec; sourceTree = "<group>"; };
 		37A378991D1009AF00FDD444 /* UIViewController+SLAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SLAdd.h"; sourceTree = "<group>"; };
 		37A3789A1D1009AF00FDD444 /* UIViewController+SLAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SLAdd.m"; sourceTree = "<group>"; };
-		37A3789C1D100A9800FDD444 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		37A378A31D102CBD00FDD444 /* SLLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginController.h; sourceTree = "<group>"; };
 		37A378A41D102CBD00FDD444 /* SLLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginController.m; sourceTree = "<group>"; };
 		37A378A51D102CBD00FDD444 /* SLLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLLoginController.xib; sourceTree = "<group>"; };
@@ -122,6 +123,12 @@
 		37CE4BB11D12861400E2ED7F /* HWNetworkBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWNetworkBaseRequest.m; sourceTree = "<group>"; };
 		37CE4BB31D128AF600E2ED7F /* HWTableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTableSection.h; sourceTree = "<group>"; };
 		37CE4BB41D128AF600E2ED7F /* HWTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTableSection.m; sourceTree = "<group>"; };
+		37CE4BB61D1295A800E2ED7F /* UIButton+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+HWAdd.h"; sourceTree = "<group>"; };
+		37CE4BB71D1295A800E2ED7F /* UIButton+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HWAdd.m"; sourceTree = "<group>"; };
+		37CE4BB91D12B0B900E2ED7F /* UIViewController+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HWAdd.h"; sourceTree = "<group>"; };
+		37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HWAdd.m"; sourceTree = "<group>"; };
+		37CE4BBC1D12B11400E2ED7F /* UIView+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HWAdd.h"; sourceTree = "<group>"; };
+		37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HWAdd.m"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HWCoreFramework_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCoreFramework_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -364,6 +371,12 @@
 				37A378CB1D10FBCE00FDD444 /* UIImage+HWAdd.m */,
 				37A378CC1D10FBCE00FDD444 /* UIScreen+HWAdd.h */,
 				37A378CD1D10FBCE00FDD444 /* UIScreen+HWAdd.m */,
+				37CE4BB61D1295A800E2ED7F /* UIButton+HWAdd.h */,
+				37CE4BB71D1295A800E2ED7F /* UIButton+HWAdd.m */,
+				37CE4BB91D12B0B900E2ED7F /* UIViewController+HWAdd.h */,
+				37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */,
+				37CE4BBC1D12B11400E2ED7F /* UIView+HWAdd.h */,
+				37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -397,7 +410,6 @@
 				F8ABA7205475FCA262989731 /* Pods */,
 				6003F58B195388D20070C39A /* Products */,
 				37A378971D1008E500FDD444 /* HWCoreFramework.podspec */,
-				37A3789C1D100A9800FDD444 /* Launch Screen.storyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -519,7 +531,6 @@
 				3779C7301D0FFC80009122CD /* ic_mine_pressed@2x.png in Resources */,
 				3779C7311D0FFC80009122CD /* ic_mine_pressed@3x.png in Resources */,
 				3779C7201D0FFC4B009122CD /* ic_bid@2x.png in Resources */,
-				37A3789D1D100A9800FDD444 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,17 +597,20 @@
 				37A378D61D10FBCE00FDD444 /* NSArray+HWAdd.m in Sources */,
 				3779C70E1D0FFA74009122CD /* SLBidController.m in Sources */,
 				37A378D91D10FBCE00FDD444 /* HWBaseTableCell.m in Sources */,
+				37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */,
 				37CE4BB51D128AF600E2ED7F /* HWTableSection.m in Sources */,
 				3779C7111D0FFA83009122CD /* SLChatController.m in Sources */,
 				37A3789B1D1009AF00FDD444 /* UIViewController+SLAdd.m in Sources */,
 				3779C70B1D0FFA61009122CD /* SLHomeController.m in Sources */,
 				3779C7141D0FFA8C009122CD /* SLMineController.m in Sources */,
+				37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */,
 				37A378D41D10FBCE00FDD444 /* HWBaseCellModel.m in Sources */,
 				37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */,
 				37A378AD1D102E6200FDD444 /* SLHomeBanner.m in Sources */,
 				37A378E01D1165B900FDD444 /* SLHomeTableSource.m in Sources */,
 				37A378D81D10FBCE00FDD444 /* UIScreen+HWAdd.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				37CE4BBB1D12B0B900E2ED7F /* UIViewController+HWAdd.m in Sources */,
 				3779C6FF1D0FF64E009122CD /* SLRootController.m in Sources */,
 				37A378E31D1166E800FDD444 /* SLHomeCell.m in Sources */,
 				37CE4BB21D12861400E2ED7F /* HWNetworkBaseRequest.m in Sources */,
@@ -697,7 +711,7 @@
 			baseConfigurationReference = 85A31C7B2649BD5E9AD2BE51 /* Pods-HWCoreFramework_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASherlock/HWCoreFramework-Prefix.pch";
@@ -716,7 +730,7 @@
 			baseConfigurationReference = 7753740293BB8C2769ABCAB4 /* Pods-HWCoreFramework_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASherlock/HWCoreFramework-Prefix.pch";

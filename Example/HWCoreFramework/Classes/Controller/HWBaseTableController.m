@@ -47,8 +47,6 @@
     self.tableView.dataSource = self;
     self.tableSource.delegate = self;
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     for (Class cellClass in [self cellClassesContainedInTableView]) {
         NSString *cellIdentifier = [self.tableSource identifierForCellClass:cellClass];
         NSString *cellNibPath = [[NSBundle mainBundle] pathForResource:NSStringFromClass(cellClass) ofType:@"nib"];
@@ -79,7 +77,7 @@
 #pragma mark - HWBaseTableSourceDelegate
 
 - (void)tableSourceDidStartRefresh:(HWBaseTableSource *)source {
-    
+
 }
 
 - (void)tableSourceDidEndRefresh:(HWBaseTableSource *)source {
@@ -154,6 +152,10 @@
 }
 
 #pragma mark - Getters
+
+- (UIRectEdge)edgesForExtendedLayout {
+    return UIRectEdgeNone;
+}
 
 - (UITableView *)tableView {
     if (!_tableView) {

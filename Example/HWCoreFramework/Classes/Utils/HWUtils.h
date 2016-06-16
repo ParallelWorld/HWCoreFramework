@@ -15,5 +15,6 @@
 
 #import "UIImage+HWAdd.h"
 #import "UIScreen+HWAdd.h"
+#import "UIButton+HWAdd.h"
 
 #endif /* HWUtils_h */

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HWBaseCellModel;
+@class HWCellModel;
 
 @protocol HWCellToControllerActionDelegate <NSObject>
 
@@ -21,7 +21,7 @@
 
 - (void)updateCell __attribute((objc_requires_super));
 
-@property (nonatomic, weak) HWBaseCellModel *cellModel;
+@property (nonatomic, weak) HWCellModel *cellModel;
 
 @property (nonatomic, weak) id <HWCellToControllerActionDelegate> actionDelegate;
 

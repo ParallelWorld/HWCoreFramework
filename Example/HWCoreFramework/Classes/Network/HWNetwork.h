@@ -11,6 +11,7 @@
 
 #import "HWNetworkDefines.h"
 
-#import "HWNetworkBaseRequest.h"
+#import "HWNetworkRequest.h"
+#import "HWNetworkResponse.h"
 
 #endif /* HWNetwork_h */

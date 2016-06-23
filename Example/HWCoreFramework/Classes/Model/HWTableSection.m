@@ -7,11 +7,11 @@
 //
 
 #import "HWTableSection.h"
-#import "HWBaseCellModel.h"
+#import "HWCellModel.h"
 
 @interface HWTableSection ()
 
-@property (nonatomic, strong) NSMutableArray<HWBaseCellModel *> *models;
+@property (nonatomic, strong) NSMutableArray<HWCellModel *> *models;
 
 @end
 
@@ -21,19 +21,19 @@
     return self.models.count;
 }
 
-- (HWBaseCellModel *)cellModelAtIndex:(NSUInteger)index {
+- (HWCellModel *)cellModelAtIndex:(NSUInteger)index {
     return self.models[index];
 }
 
-- (NSUInteger)indexOfCellModel:(HWBaseCellModel *)aCellModel {
+- (NSUInteger)indexOfCellModel:(HWCellModel *)aCellModel {
     return [self.models indexOfObject:aCellModel];
 }
 
-- (void)addCellModel:(HWBaseCellModel *)aCellModel {
+- (void)addCellModel:(HWCellModel *)aCellModel {
     [self.models addObject:aCellModel];
 }
 
-- (void)insertCellModel:(HWBaseCellModel *)aCellModel atIndex:(NSUInteger)index {
+- (void)insertCellModel:(HWCellModel *)aCellModel atIndex:(NSUInteger)index {
     [self.models insertObject:aCellModel atIndex:index];
 }
 
@@ -45,7 +45,7 @@
     [self.models removeObjectAtIndex:index];
 }
 
-- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWBaseCellModel *)aCellModel {
+- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWCellModel *)aCellModel {
     [self.models replaceObjectAtIndex:index withObject:aCellModel];
 }
 
@@ -57,7 +57,7 @@
     [self.models removeAllObjects];
 }
 
-- (void)removeCellModel:(HWBaseCellModel *)aCellModel {
+- (void)removeCellModel:(HWCellModel *)aCellModel {
     [self.models removeObject:aCellModel];
 }
 

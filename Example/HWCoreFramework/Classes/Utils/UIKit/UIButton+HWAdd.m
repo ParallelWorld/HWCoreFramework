@@ -10,8 +10,7 @@
 
 @implementation UIButton (HWAdd)
 
-- (void)hw_setBackgroundColor:(UIColor *)color forState:(UIControlState)state
-{
+- (void)hw_setBackgroundColor:(UIColor *)color forState:(UIControlState)state {
     CGRect rect = CGRectMake(0, 0, 1, 1);
     
     UIGraphicsBeginImageContext(rect.size);

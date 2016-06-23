@@ -8,21 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@class HWBaseCellModel;
+@class HWCellModel;
 
 @interface HWTableSection : NSObject
 
 - (NSInteger)numberOfCellModelsInSection;
-- (HWBaseCellModel *)cellModelAtIndex:(NSUInteger)index;
-- (NSUInteger)indexOfCellModel:(HWBaseCellModel *)aCellModel;
+- (HWCellModel *)cellModelAtIndex:(NSUInteger)index;
+- (NSUInteger)indexOfCellModel:(HWCellModel *)aCellModel;
 
-- (void)addCellModel:(HWBaseCellModel *)aCellModel;
-- (void)insertCellModel:(HWBaseCellModel *)aCellModel atIndex:(NSUInteger)index;
+- (void)addCellModel:(HWCellModel *)aCellModel;
+- (void)insertCellModel:(HWCellModel *)aCellModel atIndex:(NSUInteger)index;
 - (void)removeLastCellModel;
 - (void)removeCellModelAtIndex:(NSUInteger)index;
-- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWBaseCellModel *)aCellModel;
+- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWCellModel *)aCellModel;
 - (void)exchangeCellModelAtIndex:(NSUInteger)idx1 withCellModelAtIndex:(NSUInteger)idx2;
 - (void)removeAllCellModels;
-- (void)removeCellModel:(HWBaseCellModel *)aCellModel;
+- (void)removeCellModel:(HWCellModel *)aCellModel;
 
 @end

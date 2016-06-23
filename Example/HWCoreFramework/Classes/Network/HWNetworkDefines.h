@@ -9,44 +9,46 @@
 #ifndef HWNetworkDefines_h
 #define HWNetworkDefines_h
 
-@protocol HWNetworkRequestProtocol;
 
+@class HWNetworkRequest;
+@class HWNetworkResponse;
+
+
+typedef void(^HWNetworkRequestSuccessHandler)(HWNetworkResponse *response, id data);
+typedef void(^HWNetworkRequestFailureHandler)(HWNetworkResponse *response, NSError *error);
+typedef void(^HWNetworkRequestProgressHandler)(HWNetworkResponse *response, int64_t progress);
+
+
+/// 请求方法
 typedef NS_ENUM(NSUInteger, HWNetworkRequestMethod) {
     HWNetworkRequestMethodGET,
     HWNetworkRequestMethodPOST,
 };
 
 
-@protocol HWNetworkRequestCallbackDelegate <NSObject>
-
-@optional
-- (void)networkRequest:(id <HWNetworkRequestProtocol>)request callbackSuccessWithData:(id)data;
-- (void)networkRequest:(id <HWNetworkRequestProtocol>)request callbackFailureWithError:(NSError *)error;
-
-@end
-                                  
-
-@protocol HWNetworkRequestProtocol <NSObject>
-
+/// 请求校验器
+@protocol HWNetworkRequestValidator <NSObject>
 @required
-- (HWNetworkRequestMethod)requestMethod;
-- (NSString *)baseURL;
-- (NSString *)relativeURL;
-- (NSDictionary *)parameters;
-- (void)start;
-- (void)cancel;
+- (BOOL)validateRequest:(HWNetworkRequest *)request;
+@end
 
-@property (nonatomic, weak) id <HWNetworkRequestCallbackDelegate> callbackDelegate;
 
-@property (nonatomic, copy) void (^callbackSuccessHandler)(id data);
+/// 请求转换器
+@protocol HWNetworkRequestConvertor <NSObject>
+@required
+- (void)convertRequest:(HWNetworkRequest *)request;
+@end
 
-@property (nonatomic, copy) void (^callbackFailureHandler)(NSError *error);
 
-@optional
-//- (NSTimeInterval)timeoutInterval;
-//- (id <HWNRequestValidator>)requestValidator;
-//- (id <HWNRequestConvertor>)requestConvertor;
+@protocol HWNetworkResponseValidator <NSObject>
+@required
+- (BOOL)validateResponse:(HWNetworkResponse *)response;
+@end
 
+
+@protocol HWNetworkResponseConvertor <NSObject>
+@required
+- (void)convertResponse:(HWNetworkResponse *)response;
 @end
 
 #endif /* HWNetworkDefines_h */

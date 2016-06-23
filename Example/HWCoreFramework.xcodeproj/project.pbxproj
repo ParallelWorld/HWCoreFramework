@@ -58,6 +58,17 @@
 		37F010C31D1A9E7F00C4E209 /* SLBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010C21D1A9E7F00C4E209 /* SLBaseRequest.m */; };
 		37F010C61D1A9E9F00C4E209 /* SLNetworkRequestConvertor.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010C51D1A9E9F00C4E209 /* SLNetworkRequestConvertor.m */; };
 		37F010C91D1A9FFE00C4E209 /* SLNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010C81D1A9FFE00C4E209 /* SLNetworkTools.m */; };
+		37F010CC1D1B819700C4E209 /* NSData+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010CB1D1B819700C4E209 /* NSData+HWAdd.m */; };
+		37F010CF1D1B83AA00C4E209 /* NSDate+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010CE1D1B83AA00C4E209 /* NSDate+HWAdd.m */; };
+		37F010D51D1B843900C4E209 /* NSDictionary+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010D41D1B843900C4E209 /* NSDictionary+HWAdd.m */; };
+		37F010D81D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010D71D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m */; };
+		37F010DB1D1B851500C4E209 /* NSString+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010DA1D1B851500C4E209 /* NSString+HWAdd.m */; };
+		37F010DE1D1B85BF00C4E209 /* UIApplication+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010DD1D1B85BF00C4E209 /* UIApplication+HWAdd.m */; };
+		37F010E11D1B863100C4E209 /* UIColor+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010E01D1B863100C4E209 /* UIColor+HWAdd.m */; };
+		37F010E41D1B866A00C4E209 /* UIDevice+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010E31D1B866A00C4E209 /* UIDevice+HWAdd.m */; };
+		37F010E71D1B879900C4E209 /* UIFont+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010E61D1B879900C4E209 /* UIFont+HWAdd.m */; };
+		37F010EA1D1B888000C4E209 /* UIScrollView+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010E91D1B888000C4E209 /* UIScrollView+HWAdd.m */; };
+		37F010ED1D1B88C200C4E209 /* UITableView+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010EC1D1B88C200C4E209 /* UITableView+HWAdd.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -160,6 +171,28 @@
 		37F010C51D1A9E9F00C4E209 /* SLNetworkRequestConvertor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkRequestConvertor.m; sourceTree = "<group>"; };
 		37F010C71D1A9FFE00C4E209 /* SLNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNetworkTools.h; sourceTree = "<group>"; };
 		37F010C81D1A9FFE00C4E209 /* SLNetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkTools.m; sourceTree = "<group>"; };
+		37F010CA1D1B819700C4E209 /* NSData+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HWAdd.h"; sourceTree = "<group>"; };
+		37F010CB1D1B819700C4E209 /* NSData+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HWAdd.m"; sourceTree = "<group>"; };
+		37F010CD1D1B83AA00C4E209 /* NSDate+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HWAdd.h"; sourceTree = "<group>"; };
+		37F010CE1D1B83AA00C4E209 /* NSDate+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HWAdd.m"; sourceTree = "<group>"; };
+		37F010D31D1B843900C4E209 /* NSDictionary+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HWAdd.h"; sourceTree = "<group>"; };
+		37F010D41D1B843900C4E209 /* NSDictionary+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HWAdd.m"; sourceTree = "<group>"; };
+		37F010D61D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSKeyedUnarchiver+HWAdd.h"; sourceTree = "<group>"; };
+		37F010D71D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSKeyedUnarchiver+HWAdd.m"; sourceTree = "<group>"; };
+		37F010D91D1B851500C4E209 /* NSString+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HWAdd.h"; sourceTree = "<group>"; };
+		37F010DA1D1B851500C4E209 /* NSString+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HWAdd.m"; sourceTree = "<group>"; };
+		37F010DC1D1B85BF00C4E209 /* UIApplication+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+HWAdd.h"; sourceTree = "<group>"; };
+		37F010DD1D1B85BF00C4E209 /* UIApplication+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+HWAdd.m"; sourceTree = "<group>"; };
+		37F010DF1D1B863100C4E209 /* UIColor+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HWAdd.h"; sourceTree = "<group>"; };
+		37F010E01D1B863100C4E209 /* UIColor+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HWAdd.m"; sourceTree = "<group>"; };
+		37F010E21D1B866A00C4E209 /* UIDevice+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HWAdd.h"; sourceTree = "<group>"; };
+		37F010E31D1B866A00C4E209 /* UIDevice+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HWAdd.m"; sourceTree = "<group>"; };
+		37F010E51D1B879900C4E209 /* UIFont+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HWAdd.h"; sourceTree = "<group>"; };
+		37F010E61D1B879900C4E209 /* UIFont+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HWAdd.m"; sourceTree = "<group>"; };
+		37F010E81D1B888000C4E209 /* UIScrollView+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HWAdd.h"; sourceTree = "<group>"; };
+		37F010E91D1B888000C4E209 /* UIScrollView+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HWAdd.m"; sourceTree = "<group>"; };
+		37F010EB1D1B88C200C4E209 /* UITableView+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HWAdd.h"; sourceTree = "<group>"; };
+		37F010EC1D1B88C200C4E209 /* UITableView+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HWAdd.m"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HWCoreFramework_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCoreFramework_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -398,6 +431,16 @@
 			children = (
 				37A378C61D10FBCE00FDD444 /* NSArray+HWAdd.h */,
 				37A378C71D10FBCE00FDD444 /* NSArray+HWAdd.m */,
+				37F010CA1D1B819700C4E209 /* NSData+HWAdd.h */,
+				37F010CB1D1B819700C4E209 /* NSData+HWAdd.m */,
+				37F010CD1D1B83AA00C4E209 /* NSDate+HWAdd.h */,
+				37F010CE1D1B83AA00C4E209 /* NSDate+HWAdd.m */,
+				37F010D31D1B843900C4E209 /* NSDictionary+HWAdd.h */,
+				37F010D41D1B843900C4E209 /* NSDictionary+HWAdd.m */,
+				37F010D61D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.h */,
+				37F010D71D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m */,
+				37F010D91D1B851500C4E209 /* NSString+HWAdd.h */,
+				37F010DA1D1B851500C4E209 /* NSString+HWAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -415,6 +458,18 @@
 				37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */,
 				37CE4BB91D12B0B900E2ED7F /* UIViewController+HWAdd.h */,
 				37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */,
+				37F010DC1D1B85BF00C4E209 /* UIApplication+HWAdd.h */,
+				37F010DD1D1B85BF00C4E209 /* UIApplication+HWAdd.m */,
+				37F010DF1D1B863100C4E209 /* UIColor+HWAdd.h */,
+				37F010E01D1B863100C4E209 /* UIColor+HWAdd.m */,
+				37F010E21D1B866A00C4E209 /* UIDevice+HWAdd.h */,
+				37F010E31D1B866A00C4E209 /* UIDevice+HWAdd.m */,
+				37F010E51D1B879900C4E209 /* UIFont+HWAdd.h */,
+				37F010E61D1B879900C4E209 /* UIFont+HWAdd.m */,
+				37F010E81D1B888000C4E209 /* UIScrollView+HWAdd.h */,
+				37F010E91D1B888000C4E209 /* UIScrollView+HWAdd.m */,
+				37F010EB1D1B88C200C4E209 /* UITableView+HWAdd.h */,
+				37F010EC1D1B88C200C4E209 /* UITableView+HWAdd.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -668,6 +723,7 @@
 			files = (
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				37A378E61D1166F900FDD444 /* SLHomeCellModel.m in Sources */,
+				37F010DE1D1B85BF00C4E209 /* UIApplication+HWAdd.m in Sources */,
 				37A378A61D102CBD00FDD444 /* SLLoginController.m in Sources */,
 				37A378D51D10FBCE00FDD444 /* HWTableSource.m in Sources */,
 				37A378D61D10FBCE00FDD444 /* NSArray+HWAdd.m in Sources */,
@@ -677,24 +733,34 @@
 				37A378D91D10FBCE00FDD444 /* HWBaseTableCell.m in Sources */,
 				37F010AD1D1914B300C4E209 /* CYLTabBar.m in Sources */,
 				37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */,
+				37F010D81D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m in Sources */,
+				37F010E71D1B879900C4E209 /* UIFont+HWAdd.m in Sources */,
 				37CE4BB51D128AF600E2ED7F /* HWTableSection.m in Sources */,
 				37F010C31D1A9E7F00C4E209 /* SLBaseRequest.m in Sources */,
+				37F010DB1D1B851500C4E209 /* NSString+HWAdd.m in Sources */,
 				3779C7111D0FFA83009122CD /* SLChatController.m in Sources */,
 				37F010AF1D1914B300C4E209 /* UIViewController+CYLTabBarControllerExtention.m in Sources */,
+				37F010EA1D1B888000C4E209 /* UIScrollView+HWAdd.m in Sources */,
 				3779C70B1D0FFA61009122CD /* SLHomeController.m in Sources */,
 				37F010C61D1A9E9F00C4E209 /* SLNetworkRequestConvertor.m in Sources */,
+				37F010E41D1B866A00C4E209 /* UIDevice+HWAdd.m in Sources */,
 				3779C7141D0FFA8C009122CD /* SLMineController.m in Sources */,
 				37F010C91D1A9FFE00C4E209 /* SLNetworkTools.m in Sources */,
 				37F010B51D1935EE00C4E209 /* UIViewController+SLAdd.m in Sources */,
 				37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */,
 				37A378D41D10FBCE00FDD444 /* HWCellModel.m in Sources */,
 				37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */,
+				37F010E11D1B863100C4E209 /* UIColor+HWAdd.m in Sources */,
 				37A378AD1D102E6200FDD444 /* SLHomeBanner.m in Sources */,
 				37F010BF1D1A325C00C4E209 /* HWNetworkResponse.m in Sources */,
 				37A378E01D1165B900FDD444 /* SLHomeTableSource.m in Sources */,
+				37F010CF1D1B83AA00C4E209 /* NSDate+HWAdd.m in Sources */,
 				37A378D81D10FBCE00FDD444 /* UIScreen+HWAdd.m in Sources */,
+				37F010CC1D1B819700C4E209 /* NSData+HWAdd.m in Sources */,
+				37F010ED1D1B88C200C4E209 /* UITableView+HWAdd.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				37CE4BBB1D12B0B900E2ED7F /* UIViewController+HWAdd.m in Sources */,
+				37F010D51D1B843900C4E209 /* NSDictionary+HWAdd.m in Sources */,
 				3779C6FF1D0FF64E009122CD /* SLRootController.m in Sources */,
 				37A378E31D1166E800FDD444 /* SLHomeCell.m in Sources */,
 				37F010AE1D1914B300C4E209 /* CYLTabBarController.m in Sources */,

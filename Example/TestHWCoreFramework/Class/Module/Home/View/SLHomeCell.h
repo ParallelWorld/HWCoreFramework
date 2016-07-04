@@ -6,9 +6,9 @@
 //  Copyright © 2016 ParallelWorld. All rights reserved.
 //
 
-#import "HWBaseTableCell.h"
+#import "HWTableCell.h"
 
-@interface SLHomeCell : HWBaseTableCell
+@interface SLHomeCell : HWTableCell
 
 @property (nonatomic, strong) UILabel *myLabel;
 

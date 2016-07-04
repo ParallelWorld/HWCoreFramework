@@ -6,9 +6,9 @@
 //
 //
 
-#import "HWBaseTableCell.h"
+#import "HWTableCell.h"
 
-@implementation HWBaseTableCell
+@implementation HWTableCell
 
 - (void)updateCell {
     

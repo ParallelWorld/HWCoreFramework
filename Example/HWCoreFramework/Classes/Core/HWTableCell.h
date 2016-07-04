@@ -17,7 +17,7 @@
 @end
 
 
-@interface HWBaseTableCell : UITableViewCell
+@interface HWTableCell : UITableViewCell
 
 - (void)updateCell __attribute((objc_requires_super));
 

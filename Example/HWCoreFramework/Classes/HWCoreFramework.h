@@ -16,17 +16,16 @@
 // Network
 #import "HWNetwork.h"
 
-// Controller
-#import "HWTableController.h"
-#import "HWTabBarController.h"
-
 // Model
+#import "HWModel.h"
+
+// Core
 #import "HWTableSource.h"
 #import "HWCellModel.h"
 #import "HWTableSection.h"
-
-// View
-#import "HWBaseTableCell.h"
+#import "HWTableController.h"
+#import "HWTabBarController.h"
+#import "HWTableCell.h"
 
 
 #endif /* HWCoreFramework_h */

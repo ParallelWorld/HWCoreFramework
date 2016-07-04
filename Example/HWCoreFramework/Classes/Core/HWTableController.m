@@ -9,7 +9,7 @@
 #import "HWTableController.h"
 #import "HWTableSource.h"
 #import "Masonry.h"
-#import "HWBaseTableCell.h"
+#import "HWTableCell.h"
 #import "HWCellModel.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MJRefresh.h"
@@ -99,7 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HWCellModel *cellModel = [self.tableSource cellModelAtIndexPath:indexPath];
-    HWBaseTableCell *cell = (HWBaseTableCell *)[tableView dequeueReusableCellWithIdentifier:cellModel.identifier];
+    HWTableCell *cell = (HWTableCell *)[tableView dequeueReusableCellWithIdentifier:cellModel.identifier];
     cell.actionDelegate = self;
     cell.cellModel = cellModel;
     [cell updateCell];
@@ -118,7 +118,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HWCellModel *cellModel = [self.tableSource cellModelAtIndexPath:indexPath];
-    return [tableView fd_heightForCellWithIdentifier:cellModel.identifier cacheByIndexPath:indexPath configuration:^(HWBaseTableCell *cell) {
+    return [tableView fd_heightForCellWithIdentifier:cellModel.identifier cacheByIndexPath:indexPath configuration:^(HWTableCell *cell) {
         cell.cellModel = cellModel;
         [cell updateCell];
     }];

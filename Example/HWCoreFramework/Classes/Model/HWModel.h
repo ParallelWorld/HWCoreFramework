@@ -2,12 +2,13 @@
 //  HWModel.h
 //  HWCoreFramework
 //
-//  Created by 58 on 6/21/16.
+//  Created by 58 on 6/24/16.
 //  Copyright © 2016 ParallelWorld. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef HWModel_h
+#define HWModel_h
 
-@interface HWModel : NSObject
+#import "NSObject+HWModel.h"
 
-@end
+#endif /* HWModel_h */

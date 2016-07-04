@@ -6,7 +6,7 @@
 //
 //
 
-#import "HWBaseTableCell.h"
+#import "HWTableCell.h"
 #import "HWTableSource.h"
 #import "UIScrollView+EmptyDataSet.h"
 

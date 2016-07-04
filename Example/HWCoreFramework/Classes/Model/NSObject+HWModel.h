@@ -49,24 +49,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface NSObject (HWCoding)
-- (void)hw_decode:(NSCoder *)decoder;
-- (void)hw_encode:(NSCoder *)encoder;
-@end
-
-
-#define HW_CODING_IMPLEMENTATION \
-- (instancetype)initWithCoder:(NSCoder *)aDecoder { \
-self = [super init]; \
-if (self) { \
-    [self hw_decode:aDecoder]; \
-} \
-return self; \
-} \
-\
-- (void)encodeWithCoder:(NSCoder *)aCoder { \
-    [self hw_encode:aCoder]; \
-} \
-
-
 NS_ASSUME_NONNULL_END

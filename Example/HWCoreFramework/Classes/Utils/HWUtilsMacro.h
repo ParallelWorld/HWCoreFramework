@@ -57,6 +57,22 @@ return _instanceOf##className; \
 #define HW_STRONGIFY(object) __typeof__(object) object = weak##_##object;
 
 
+#pragma mark - NSObject coding
+
+#define HW_CODING_IMPLEMENTATION \
+- (instancetype)initWithCoder:(NSCoder *)aDecoder { \
+self = [super init]; \
+if (self) { \
+[self hw_decode:aDecoder]; \
+} \
+return self; \
+} \
+\
+- (void)encodeWithCoder:(NSCoder *)aCoder { \
+[self hw_encode:aCoder]; \
+} \
+
+
 #pragma mark - UIScreen
 
 #define HW_SCREEN_BOUNDS [UIScreen mainScreen].bounds

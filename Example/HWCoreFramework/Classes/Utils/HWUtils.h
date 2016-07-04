@@ -16,6 +16,7 @@
 #import "NSDate+HWAdd.h"
 #import "NSDictionary+HWAdd.h"
 #import "NSKeyedUnarchiver+HWAdd.h"
+#import "NSObject+HWAdd.h"
 #import "NSObject+HWAddForKVO.h"
 #import "NSString+HWAdd.h"
 

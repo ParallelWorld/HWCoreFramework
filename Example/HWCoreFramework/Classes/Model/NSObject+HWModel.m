@@ -117,32 +117,6 @@
 
 @end
 
-@implementation NSObject (HWCoding)
-
-- (void)hw_decode:(NSCoder *)decoder {
-    HWClassInfo *classInfo = [HWClassInfo classInfoWithClass:[self class]];
-    [classInfo.propertyInfos enumerateKeysAndObjectsUsingBlock:^(NSString *key, HWClassPropertyInfo *obj, BOOL *stop) {
-        id value = [decoder decodeObjectForKey:obj.name];
-        if (!value) {
-            return;
-        }
-        [self setValue:value forKey:obj.name];
-    }];
-}
-
-- (void)hw_encode:(NSCoder *)encoder {
-    HWClassInfo *classInfo = [HWClassInfo classInfoWithClass:[self class]];
-    [classInfo.propertyInfos enumerateKeysAndObjectsUsingBlock:^(NSString *key, HWClassPropertyInfo *obj, BOOL *stop) {
-        id value = [self valueForKey:obj.name];
-        if (!value) {
-            return;
-        }
-        [encoder encodeObject:value forKey:obj.name];
-    }];
-}
-
-@end
-
 
 @implementation NSArray (HWModel)
 

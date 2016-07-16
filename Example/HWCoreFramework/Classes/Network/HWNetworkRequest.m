@@ -87,7 +87,7 @@ HW_SINGLETON_IMPLEMENTATION(_HWNetworkClient)
     
     switch (request.requestMethod) {
         case HWNetworkRequestMethodGET: {
-            request.task = [[_HWNetworkClient sharedInstance].manager GET:request.URLString
+            request.task = [[_HWNetworkClient shared_HWNetworkClientInstance].manager GET:request.URLString
                                                                parameters:request.parameters
                                                                  progress:progressBlock
                                                                   success:successBlock
@@ -95,7 +95,7 @@ HW_SINGLETON_IMPLEMENTATION(_HWNetworkClient)
             break;
         }
         case HWNetworkRequestMethodPOST: {
-            request.task = [[_HWNetworkClient sharedInstance].manager POST:request.URLString
+            request.task = [[_HWNetworkClient shared_HWNetworkClientInstance].manager POST:request.URLString
                                                                 parameters:request.parameters
                                                                   progress:progressBlock
                                                                    success:successBlock
@@ -172,7 +172,7 @@ HW_SINGLETON_IMPLEMENTATION(_HWNetworkClient)
     self.successHandler  = success;
     self.failureHandler  = failure;
     self.progressHandler = progress;
-    [[_HWNetworkClient sharedInstance] startRequest:self];
+    [[_HWNetworkClient shared_HWNetworkClientInstance] startRequest:self];
 }
 
 - (void)startWithSuccessHandler:(HWNetworkRequestSuccessHandler)success failureHandler:(HWNetworkRequestFailureHandler)failure {
@@ -180,7 +180,7 @@ HW_SINGLETON_IMPLEMENTATION(_HWNetworkClient)
 }
 
 - (void)cancel {
-    [[_HWNetworkClient sharedInstance] cancelRequest:self];
+    [[_HWNetworkClient shared_HWNetworkClientInstance] cancelRequest:self];
 }
 
 - (NSString *)URLString {

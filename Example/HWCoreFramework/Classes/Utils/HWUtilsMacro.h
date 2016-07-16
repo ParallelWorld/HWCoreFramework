@@ -18,7 +18,7 @@
 #pragma mark - Singleton
 
 #define HW_SINGLETON_INTERFACE(className) \
-+ (instancetype)sharedInstance;
++ (instancetype)shared##className##Instance;
 
 #define HW_SINGLETON_IMPLEMENTATION(className) \
 static className *_instanceOf##className; \
@@ -30,7 +30,7 @@ _instanceOf##className = [super allocWithZone:zone]; \
 }); \
 return _instanceOf##className; \
 } \
-+ (instancetype)sharedInstance \
++ (instancetype)shared##className##Instance \
 { \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \

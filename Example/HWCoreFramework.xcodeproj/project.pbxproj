@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3762EAD61D45EF9500107B7A /* HWMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762EAD51D45EF9500107B7A /* HWMemoryCache.m */; };
+		3762EAD91D45EFA200107B7A /* HWDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3762EAD81D45EFA200107B7A /* HWDiskCache.m */; };
 		3775218D1D2A51D500BEE37F /* NSObject+HWAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 3775218C1D2A51D500BEE37F /* NSObject+HWAddForKVO.m */; };
 		377521901D2A626200BEE37F /* NSObject+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3775218F1D2A626200BEE37F /* NSObject+HWAdd.m */; };
 		3779C6FF1D0FF64E009122CD /* SLRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779C6FE1D0FF64E009122CD /* SLRootController.m */; };
@@ -85,6 +87,10 @@
 
 /* Begin PBXFileReference section */
 		1D70B9A4EDDC5365925422E3 /* libPods-HWCoreFramework_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HWCoreFramework_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3762EAD41D45EF9500107B7A /* HWMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWMemoryCache.h; sourceTree = "<group>"; };
+		3762EAD51D45EF9500107B7A /* HWMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWMemoryCache.m; sourceTree = "<group>"; };
+		3762EAD71D45EFA200107B7A /* HWDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWDiskCache.h; sourceTree = "<group>"; };
+		3762EAD81D45EFA200107B7A /* HWDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWDiskCache.m; sourceTree = "<group>"; };
 		3775218B1D2A51D500BEE37F /* NSObject+HWAddForKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HWAddForKVO.h"; sourceTree = "<group>"; };
 		3775218C1D2A51D500BEE37F /* NSObject+HWAddForKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HWAddForKVO.m"; sourceTree = "<group>"; };
 		3775218E1D2A626200BEE37F /* NSObject+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HWAdd.h"; sourceTree = "<group>"; };
@@ -206,7 +212,7 @@
 		37F010F61D1CD55400C4E209 /* HWModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWModel.h; sourceTree = "<group>"; };
 		37F0110A1D22244500C4E209 /* HWClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWClassInfo.h; sourceTree = "<group>"; };
 		37F0110B1D22244500C4E209 /* HWClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWClassInfo.m; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* HWCoreFramework_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCoreFramework_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* HWCoreFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCoreFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -438,12 +444,12 @@
 				37F010D41D1B843900C4E209 /* NSDictionary+HWAdd.m */,
 				37F010D61D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.h */,
 				37F010D71D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m */,
+				3775218E1D2A626200BEE37F /* NSObject+HWAdd.h */,
+				3775218F1D2A626200BEE37F /* NSObject+HWAdd.m */,
 				3775218B1D2A51D500BEE37F /* NSObject+HWAddForKVO.h */,
 				3775218C1D2A51D500BEE37F /* NSObject+HWAddForKVO.m */,
 				37F010D91D1B851500C4E209 /* NSString+HWAdd.h */,
 				37F010DA1D1B851500C4E209 /* NSString+HWAdd.m */,
-				3775218E1D2A626200BEE37F /* NSObject+HWAdd.h */,
-				3775218F1D2A626200BEE37F /* NSObject+HWAdd.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -531,6 +537,10 @@
 			children = (
 				37F010EF1D1BCC5500C4E209 /* HWCache.h */,
 				37F010F01D1BCC5500C4E209 /* HWCache.m */,
+				3762EAD71D45EFA200107B7A /* HWDiskCache.h */,
+				3762EAD81D45EFA200107B7A /* HWDiskCache.m */,
+				3762EAD41D45EF9500107B7A /* HWMemoryCache.h */,
+				3762EAD51D45EF9500107B7A /* HWMemoryCache.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -557,11 +567,11 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				6003F593195388D20070C39A /* Bangbang */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				37A378B61D10FB6200FDD444 /* HWCoreFramework */,
 				F8ABA7205475FCA262989731 /* Pods */,
 				6003F58B195388D20070C39A /* Products */,
-				6003F593195388D20070C39A /* TestHWCoreFramework */,
 				37A378971D1008E500FDD444 /* HWCoreFramework.podspec */,
 			);
 			sourceTree = "<group>";
@@ -569,7 +579,7 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* HWCoreFramework_Example.app */,
+				6003F58A195388D20070C39A /* HWCoreFramework.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -585,7 +595,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* TestHWCoreFramework */ = {
+		6003F593195388D20070C39A /* Bangbang */ = {
 			isa = PBXGroup;
 			children = (
 				3779C7001D0FF706009122CD /* Class */,
@@ -597,7 +607,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 			);
-			path = TestHWCoreFramework;
+			path = Bangbang;
 			sourceTree = "<group>";
 		};
 		F8ABA7205475FCA262989731 /* Pods */ = {
@@ -612,9 +622,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* HWCoreFramework_Example */ = {
+		6003F589195388D20070C39A /* HWCoreFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "HWCoreFramework_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "HWCoreFramework" */;
 			buildPhases = (
 				60CB6C751B7517F08E932757 /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -627,9 +637,9 @@
 			);
 			dependencies = (
 			);
-			name = HWCoreFramework_Example;
+			name = HWCoreFramework;
 			productName = HWCoreFramework;
-			productReference = 6003F58A195388D20070C39A /* HWCoreFramework_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* HWCoreFramework.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -639,7 +649,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SL;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = ParallelWorld;
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "HWCoreFramework" */;
@@ -655,7 +665,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* HWCoreFramework_Example */,
+				6003F589195388D20070C39A /* HWCoreFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -756,6 +766,7 @@
 				37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */,
 				37F010D81D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m in Sources */,
 				37F010E71D1B879900C4E209 /* UIFont+HWAdd.m in Sources */,
+				3762EAD61D45EF9500107B7A /* HWMemoryCache.m in Sources */,
 				37CE4BB51D128AF600E2ED7F /* HWTableSection.m in Sources */,
 				37F010C31D1A9E7F00C4E209 /* SLBaseRequest.m in Sources */,
 				37F010DB1D1B851500C4E209 /* NSString+HWAdd.m in Sources */,
@@ -780,6 +791,7 @@
 				377521901D2A626200BEE37F /* NSObject+HWAdd.m in Sources */,
 				37A378E01D1165B900FDD444 /* SLHomeTableSource.m in Sources */,
 				37F010CF1D1B83AA00C4E209 /* NSDate+HWAdd.m in Sources */,
+				3762EAD91D45EFA200107B7A /* HWDiskCache.m in Sources */,
 				37A378D81D10FBCE00FDD444 /* UIScreen+HWAdd.m in Sources */,
 				37F010CC1D1B819700C4E209 /* NSData+HWAdd.m in Sources */,
 				37F010ED1D1B88C200C4E209 /* UITableView+HWAdd.m in Sources */,
@@ -826,12 +838,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -866,11 +881,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -892,9 +910,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TestHWCoreFramework/HWCoreFramework-Prefix.pch";
-				INFOPLIST_FILE = "TestHWCoreFramework/HWCoreFramework-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				GCC_PREFIX_HEADER = "Bangbang/HWCoreFramework-Prefix.pch";
+				INFOPLIST_FILE = "Bangbang/HWCoreFramework-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangbang.sherlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -911,9 +929,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TestHWCoreFramework/HWCoreFramework-Prefix.pch";
-				INFOPLIST_FILE = "TestHWCoreFramework/HWCoreFramework-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				GCC_PREFIX_HEADER = "Bangbang/HWCoreFramework-Prefix.pch";
+				INFOPLIST_FILE = "Bangbang/HWCoreFramework-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangbang.sherlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -934,7 +952,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "HWCoreFramework_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "HWCoreFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,

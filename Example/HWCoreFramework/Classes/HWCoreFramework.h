@@ -19,6 +19,9 @@
 // Model
 #import "HWModel.h"
 
+// Cache
+#import "HWCache.h"
+
 // Core
 #import "HWTableSource.h"
 #import "HWCellModel.h"

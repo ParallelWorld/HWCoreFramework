@@ -75,9 +75,7 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
     dispatch_queue_t _queue;
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
-}
+- (void)dealloc {}
 
 - (instancetype)initWithPath:(NSString *)path {
     self = [super init];
@@ -92,7 +90,6 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
     [self p_createCacheDirectory];
     _HWDiskCacheSetGlobal(self);
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_appWillTerminate) name:UIApplicationWillTerminateNotification object:nil];
     return self;
 }
 
@@ -187,10 +184,6 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 }
 
 #pragma mark - Private
-
-- (void)p_appWillTerminate {
-    
-}
 
 - (NSString *)p_encodedFileURLForKey:(NSString *)key {
     if (key.length == 0) return nil;

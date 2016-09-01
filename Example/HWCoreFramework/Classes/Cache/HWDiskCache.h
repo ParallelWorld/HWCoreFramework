@@ -1,10 +1,3 @@
-//
-//  HWDiskCache.h
-//  HWCoreFramework
-//
-//  Created by 58 on 7/25/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 
@@ -18,10 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
-#pragma mark - Access methods
-
 - (nullable id<NSCoding>)objectForKey:(NSString *)key;
-- (void)objectForKey:(NSString *)key withBlock:(void(^)(NSString *key, _Nullable id<NSCoding> object))block;
+- (void)objectForKey:(NSString *)key withBlock:(void(^)(NSString *key, __nullable id<NSCoding> object))block;
 
 - (void)setObject:(nullable id<NSCoding>)object forKey:(NSString *)key;
 - (void)setObject:(nullable id<NSCoding>)object forKey:(NSString *)key withBlock:(void(^)(void))block;

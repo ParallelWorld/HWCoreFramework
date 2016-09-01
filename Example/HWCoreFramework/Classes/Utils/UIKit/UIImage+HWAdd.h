@@ -1,10 +1,3 @@
-//
-//  UIImage+HWAdd.h
-//  Pods
-//
-//  Created by 58 on 6/14/16.
-//
-//
 
 #import <UIKit/UIKit.h>
 
@@ -27,5 +20,7 @@
                           borderWidth:(CGFloat)borderWidth
                           borderColor:(UIColor *)borderColor
                        borderLineJoin:(CGLineJoin)borderLineJoin;
+
++ (UIImage *)hw_imageWithData:(NSData *)data;
 
 @end

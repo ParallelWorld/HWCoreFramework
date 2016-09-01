@@ -1,43 +1,17 @@
-//
-//  HWDiskCache.m
-//  HWCoreFramework
-//
-//  Created by 58 on 7/25/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import "HWDiskCache.h"
 #import <CommonCrypto/CommonCrypto.h>
+#import "HWUtils.h"
 
 
 #define LOCK() dispatch_semaphore_wait(self->_lock, DISPATCH_TIME_FOREVER)
 #define UNLOCK() dispatch_semaphore_signal(self->_lock)
 
+#define HW_DISK_CACHE_ERROR(error) \
+if (error) { \
+    NSLog(@"%@ (%d) ERROR: %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [error localizedDescription]); \
+} \
 
-/// Free disk space in bytes.
-static int64_t _HWDiskSpaceFree() {
-    NSError *error = nil;
-    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
-    if (error) return -1;
-    int64_t space = [attrs[NSFileSystemFreeSize] longLongValue];
-    if (space < 0) space = -1;
-    return space;
-}
-
-/// String's md5 hash.
-static NSString *_HWNSStringMD5(NSString *string) {
-    if (!string) return nil;
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(data.bytes, (CC_LONG)data.length, result);
-    return [NSString stringWithFormat:
-            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            result[0],  result[1],  result[2],  result[3],
-            result[4],  result[5],  result[6],  result[7],
-            result[8],  result[9],  result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
-}
 
 /// Weak reference for all instances
 static NSMapTable *_globalInstances;
@@ -79,17 +53,17 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 
 - (instancetype)initWithPath:(NSString *)path {
     self = [super init];
-    if (!self) return nil;
-    
-    HWDiskCache *globalCache = _HWDiskCacheGetGlobal(path);
-    if (globalCache) return globalCache;
-    
-    _path = path;
-    _lock = dispatch_semaphore_create(1);
-    _queue = dispatch_queue_create("com.parallelworld.cache.disk", DISPATCH_QUEUE_CONCURRENT);
-    [self p_createCacheDirectory];
-    _HWDiskCacheSetGlobal(self);
-    
+    if (self) {
+        HWDiskCache *globalCache = _HWDiskCacheGetGlobal(path);
+        if (globalCache) return globalCache;
+        
+        _path = path;
+        _lock = dispatch_semaphore_create(1);
+        _queue = dispatch_queue_create("com.parallelworld.cache.disk", DISPATCH_QUEUE_CONCURRENT);
+        [self p_createCacheDirectory];
+        _HWDiskCacheSetGlobal(self);
+
+    }
     return self;
 }
 
@@ -99,13 +73,15 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
     if (!key) return nil;
     
     LOCK();
-    NSString *filePath = [self p_encodedFileURLForKey:key];
+    NSString *filePath = [self p_encodedFilePathForKey:key];
     id<NSCoding> object = nil;
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         @try {
             object = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
         } @catch (NSException *exception) {
-            // TODO
+            NSError *error = nil;
+            [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+            HW_DISK_CACHE_ERROR(error);
         }
     }
     UNLOCK();
@@ -115,9 +91,9 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 
 - (void)objectForKey:(NSString *)key withBlock:(void (^)(NSString *, id<NSCoding>))block {
     if (!block) return;
-    __weak typeof(self) _self = self;
+    HW_WEAKIFY(self);
     dispatch_async(_queue, ^{
-        __strong typeof(_self) self = _self;
+        HW_STRONGIFY(self);
         id<NSCoding> object = [self objectForKey:key];
         block(key, object);
     });
@@ -131,16 +107,24 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
     }
     
     LOCK();
-    NSString *filePath = [self p_encodedFileURLForKey:key];
-    [NSKeyedArchiver archiveRootObject:object toFile:filePath];
+    NSString *filePath = [self p_encodedFilePathForKey:key];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSError *writeError = nil;
+    
+    BOOL written = [data writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+    HW_DISK_CACHE_ERROR(writeError);
+    
+    if (written) {
+        [self p_setFileModificationDate:[NSDate date] forPath:filePath];
+    }
     UNLOCK();
 }
 
 - (void)setObject:(id<NSCoding>)object forKey:(NSString *)key withBlock:(void (^)(void))block {
     if (!block) return;
-    __weak typeof(self) _self = self;
+    HW_WEAKIFY(self);
     dispatch_async(_queue, ^{
-        __strong typeof(_self) self = _self;
+        HW_STRONGIFY(self);
         [self setObject:object forKey:key];
         block();
     });
@@ -150,7 +134,7 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
     if (!key) return;
     
     LOCK();
-    NSString *filePath = [self p_encodedFileURLForKey:key];
+    NSString *filePath = [self p_encodedFilePathForKey:key];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:NULL];
     }
@@ -159,9 +143,9 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 
 - (void)removeObjectForKey:(NSString *)key withBlock:(void (^)(NSString *))block {
     if (!block) return;
-    __weak typeof(self) _self = self;
+    HW_WEAKIFY(self);
     dispatch_async(_queue, ^{
-        __strong typeof(_self) self = _self;
+        HW_STRONGIFY(self);
         [self removeObjectForKey:key];
         block(key);
     });
@@ -175,9 +159,9 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 
 - (void)removeAllObjectsWithBlock:(void (^)(void))block {
     if (!block) return;
-    __weak typeof(self) _self = self;
+    HW_WEAKIFY(self);
     dispatch_async(_queue, ^{
-        __strong typeof(_self) self = _self;
+        HW_STRONGIFY(self);
         [self removeAllObjects];
         block();
     });
@@ -185,14 +169,35 @@ static void _HWDiskCacheSetGlobal(HWDiskCache *cache) {
 
 #pragma mark - Private
 
-- (NSString *)p_encodedFileURLForKey:(NSString *)key {
+- (NSString *)p_encodedFilePathForKey:(NSString *)key {
     if (key.length == 0) return nil;
-    return [_path stringByAppendingPathComponent:key];
+    return [_path stringByAppendingPathComponent:[self p_encodedString:key]];
 }
 
 - (void)p_createCacheDirectory {
     if ([[NSFileManager defaultManager] fileExistsAtPath:_path]) return;
     [[NSFileManager defaultManager] createDirectoryAtPath:_path withIntermediateDirectories:YES attributes:nil error:NULL];
+}
+
+- (BOOL)p_setFileModificationDate:(NSDate *)date forPath:(NSString *)path {
+    if (!date || !path) return NO;
+    NSError *error = nil;
+    BOOL success = [[NSFileManager defaultManager] setAttributes:@{NSFileModificationDate: date} ofItemAtPath:path error:&error];
+    HW_DISK_CACHE_ERROR(error);
+    if (success) {
+        
+    }
+    return success;
+}
+
+- (NSString *)p_encodedString:(NSString *)string {
+    if (string.length == 0) return @"";
+    return [string stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@".:/%"] invertedSet]];
+}
+
+- (NSString *)p_decodedString:(NSString *)string {
+    if (string.length == 0) return @"";
+    return [string stringByRemovingPercentEncoding];
 }
 
 @end

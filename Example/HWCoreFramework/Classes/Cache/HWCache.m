@@ -1,20 +1,12 @@
-//
-//  HWCache.m
-//  HWCoreFramework
-//
-//  Created by 58 on 6/23/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import "HWCache.h"
 
 @implementation HWCache
 
-
 - (instancetype)initWithName:(NSString *)name {
     if (name.length == 0) return nil;
-    NSString *cacheFolder = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *path = [cacheFolder stringByAppendingPathComponent:name];
+    NSString *cacheDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *path = [cacheDirectory stringByAppendingPathComponent:name];
     return [self initWithPath:path];
 }
 
@@ -30,14 +22,6 @@
     _diskCache = diskCache;
     _memoryCache = memoryCache;
     return self;
-}
-
-+ (instancetype)cacheWithName:(NSString *)name {
-    return [[self alloc] initWithName:name];
-}
-
-+ (instancetype)cacheWithPath:(NSString *)path {
-    return [[self alloc] initWithPath:path];
 }
 
 - (id<NSCoding>)objectForKey:(NSString *)key {

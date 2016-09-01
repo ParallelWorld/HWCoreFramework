@@ -35,4 +35,9 @@
 /// Returns NSData from base64 encoded string.
 + (NSData *)hw_dataWithBase64EncodedString:(NSString *)base64EncodedString;
 
+#pragma mark - Image Content Type
+
+/// Returns the content type as string for an image data, such as image/jpeg, image/gif.
++ (NSString *)hw_contentTypeForImageData:(NSData *)data;
+
 @end

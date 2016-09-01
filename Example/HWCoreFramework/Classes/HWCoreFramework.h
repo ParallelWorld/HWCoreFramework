@@ -25,10 +25,11 @@
 // Core
 #import "HWTableSource.h"
 #import "HWCellModel.h"
-#import "HWTableSection.h"
 #import "HWTableController.h"
 #import "HWTabBarController.h"
 #import "HWTableCell.h"
+#import "HWTableSection.h"
+#import "HWTableRow.h"
 
 
 #endif /* HWCoreFramework_h */

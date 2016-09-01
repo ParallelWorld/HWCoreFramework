@@ -512,6 +512,11 @@
 				CLASSPREFIX = SL;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = ParallelWorld;
+				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 65UUVDTS99;
+					};
+				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "HWCoreFramework" */;
 			compatibilityVersion = "Xcode 3.2";

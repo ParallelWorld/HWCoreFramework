@@ -1,14 +1,16 @@
-//
-//  UITableView+HWAdd.m
-//  HWCoreFramework
-//
-//  Created by 58 on 6/23/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import "UITableView+HWAdd.h"
 
 @implementation UITableView (HWAdd)
+
+- (void)hw_registerCellClassOrNib:(NSString *)classNameOrNibName forCellReuseIdentifier:(NSString *)identifier {
+    NSString *nibPath = [[NSBundle mainBundle] pathForResource:classNameOrNibName ofType:@"nib"];
+    if (nibPath) {
+        [self registerNib:[UINib nibWithNibName:classNameOrNibName bundle:nil] forCellReuseIdentifier:identifier];
+    } else {
+        [self registerClass:NSClassFromString(classNameOrNibName) forCellReuseIdentifier:identifier];
+    }
+}
 
 - (void)hw_scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];

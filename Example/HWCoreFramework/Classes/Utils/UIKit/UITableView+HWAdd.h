@@ -1,14 +1,11 @@
-//
-//  UITableView+HWAdd.h
-//  HWCoreFramework
-//
-//  Created by 58 on 6/23/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
 @interface UITableView (HWAdd)
+
+/// If nib file is exist, method will register nib of first parameter.
+/// otherwise, method will register class of first parameter.
+- (void)hw_registerCellClassOrNib:(NSString *)classNameOrNibName forCellReuseIdentifier:(NSString *)identifier;
 
 - (void)hw_scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 

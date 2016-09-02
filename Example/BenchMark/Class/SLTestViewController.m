@@ -8,6 +8,7 @@
 
 #import "SLTestViewController.h"
 #import "SLButtonAlignmentViewController.h"
+#import "SLApplicationViewController.h"
 
 @interface SLTestViewController ()
 
@@ -22,6 +23,9 @@
 
 - (IBAction)entryButtonAlignmentController:(id)sender {
     [self.navigationController pushViewController:[SLButtonAlignmentViewController new] animated:YES];
+}
+- (IBAction)entryApplicationController:(id)sender {
+    [self.navigationController pushViewController:[SLApplicationViewController new] animated:YES];
 }
 
 @end

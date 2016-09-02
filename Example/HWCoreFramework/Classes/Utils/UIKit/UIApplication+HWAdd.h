@@ -1,12 +1,19 @@
-//
-//  UIApplication+HWAdd.h
-//  HWCoreFramework
-//
-//  Created by 58 on 6/23/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSUInteger, HWApplicationSystemSettingType) {
+    HWApplicationSystemSettingWIFI,
+    HWApplicationSystemSettingBluetooth,
+    HWApplicationSystemSettingGeneral,
+    HWApplicationSystemSettingAbout,
+    HWApplicationSystemSettingLocation,
+    HWApplicationSystemSettingNotification,
+};
+
+typedef NS_ENUM(NSUInteger, HWApplicationSystemPhoneType) {
+    HWApplicationSystemPhoneCall,
+    HWApplicationSystemPhoneSendMessage,
+};
 
 @interface UIApplication (HWAdd)
 
@@ -26,5 +33,17 @@
 @property (nonatomic, readonly) NSString *hw_appVersion;
 
 @property (nonatomic, readonly) NSString *hw_appBuildVersion;
+
+/// Can jump to system setting page.
+- (BOOL)hw_canOpenSystemSettingOfType:(HWApplicationSystemSettingType)type;
+
+/// Jump to system setting page.
+- (BOOL)hw_openSystemSettingOfType:(HWApplicationSystemSettingType)type;
+
+/// Can do phone action.
+- (BOOL)hw_canDoPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
+
+/// Do phone action.
+- (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
 
 @end

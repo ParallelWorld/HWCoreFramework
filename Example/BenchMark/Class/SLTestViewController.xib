@@ -15,23 +15,44 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-uQ-Jhe">
-                    <rect key="frame" x="239" y="285" width="122" height="30"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZU-Z5-4XZ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWq-m1-WKt">
-                            <rect key="frame" x="0.0" y="0.0" width="122" height="30"/>
-                            <state key="normal" title="UIButton+HWAdd"/>
-                            <connections>
-                                <action selector="entryButtonAlignmentController:" destination="-1" eventType="touchUpInside" id="ie6-tl-wxW"/>
-                            </connections>
-                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-uQ-Jhe">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWq-m1-WKt">
+                                    <rect key="frame" x="239" y="0.0" width="122" height="30"/>
+                                    <state key="normal" title="UIButton+HWAdd"/>
+                                    <connections>
+                                        <action selector="entryButtonAlignmentController:" destination="-1" eventType="touchUpInside" id="ie6-tl-wxW"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yc-ej-g2o">
+                                    <rect key="frame" x="224" y="30" width="153" height="30"/>
+                                    <state key="normal" title="UIApplication+HWAdd"/>
+                                    <connections>
+                                        <action selector="entryApplicationController:" destination="-1" eventType="touchUpInside" id="iVN-8d-Op7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="I9q-uQ-Jhe" firstAttribute="top" secondItem="2ZU-Z5-4XZ" secondAttribute="top" id="H56-L7-R78"/>
+                        <constraint firstItem="I9q-uQ-Jhe" firstAttribute="leading" secondItem="2ZU-Z5-4XZ" secondAttribute="leading" id="Lv4-hQ-kib"/>
+                        <constraint firstAttribute="bottom" secondItem="I9q-uQ-Jhe" secondAttribute="bottom" id="MeJ-7M-ASB"/>
+                        <constraint firstItem="I9q-uQ-Jhe" firstAttribute="width" secondItem="2ZU-Z5-4XZ" secondAttribute="width" id="OA1-fk-Plt"/>
+                        <constraint firstAttribute="trailing" secondItem="I9q-uQ-Jhe" secondAttribute="trailing" id="cpL-hU-hYg"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="I9q-uQ-Jhe" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="InB-f0-Viu"/>
-                <constraint firstItem="I9q-uQ-Jhe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7V-13-y35"/>
+                <constraint firstAttribute="trailing" secondItem="2ZU-Z5-4XZ" secondAttribute="trailing" id="1l0-pT-Yl6"/>
+                <constraint firstItem="2ZU-Z5-4XZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JJR-2c-R9d"/>
+                <constraint firstItem="2ZU-Z5-4XZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bVr-cH-dxR"/>
+                <constraint firstAttribute="bottom" secondItem="2ZU-Z5-4XZ" secondAttribute="bottom" id="w8F-OM-cDh"/>
             </constraints>
         </view>
     </objects>

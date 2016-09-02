@@ -64,6 +64,8 @@
 		37F010F11D1BCC5500C4E209 /* HWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010F01D1BCC5500C4E209 /* HWCache.m */; };
 		37F010F51D1BD9BF00C4E209 /* NSObject+HWModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010F41D1BD9BF00C4E209 /* NSObject+HWModel.m */; };
 		37F0110C1D22244500C4E209 /* HWClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0110B1D22244500C4E209 /* HWClassInfo.m */; };
+		37F083051D7969F6000F828E /* SLApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F083031D7969F6000F828E /* SLApplicationViewController.m */; };
+		37F083061D7969F6000F828E /* SLApplicationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37F083041D7969F6000F828E /* SLApplicationViewController.xib */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -178,6 +180,9 @@
 		37F010F61D1CD55400C4E209 /* HWModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWModel.h; sourceTree = "<group>"; };
 		37F0110A1D22244500C4E209 /* HWClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWClassInfo.h; sourceTree = "<group>"; };
 		37F0110B1D22244500C4E209 /* HWClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWClassInfo.m; sourceTree = "<group>"; };
+		37F083021D7969F6000F828E /* SLApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLApplicationViewController.h; sourceTree = "<group>"; };
+		37F083031D7969F6000F828E /* SLApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLApplicationViewController.m; sourceTree = "<group>"; };
+		37F083041D7969F6000F828E /* SLApplicationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLApplicationViewController.xib; sourceTree = "<group>"; };
 		3BEE3A36438009ABB2E417A7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* HWCoreFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCoreFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,6 +218,9 @@
 				37585F201D77CCCD00A61C5D /* SLButtonAlignmentViewController.h */,
 				37585F211D77CCCD00A61C5D /* SLButtonAlignmentViewController.m */,
 				37585F221D77CCCD00A61C5D /* SLButtonAlignmentViewController.xib */,
+				37F083021D7969F6000F828E /* SLApplicationViewController.h */,
+				37F083031D7969F6000F828E /* SLApplicationViewController.m */,
+				37F083041D7969F6000F828E /* SLApplicationViewController.xib */,
 				376EE0131D77CAE100F3843B /* SLTestViewController.h */,
 				376EE0141D77CAE100F3843B /* SLTestViewController.m */,
 				376EE0151D77CAE100F3843B /* SLTestViewController.xib */,
@@ -553,6 +561,7 @@
 				37A378981D1008E500FDD444 /* HWCoreFramework.podspec in Resources */,
 				3779C71C1D0FFC39009122CD /* ic_home@2x.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				37F083061D7969F6000F828E /* SLApplicationViewController.xib in Resources */,
 				3779C7341D0FFC88009122CD /* ic_mine@2x.png in Resources */,
 				3779C7211D0FFC4B009122CD /* ic_bid@3x.png in Resources */,
 				3779C7281D0FFC68009122CD /* ic_chat_pressed@2x.png in Resources */,
@@ -641,6 +650,7 @@
 				37A378D41D10FBCE00FDD444 /* HWCellModel.m in Sources */,
 				37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */,
 				37F010E11D1B863100C4E209 /* UIColor+HWAdd.m in Sources */,
+				37F083051D7969F6000F828E /* SLApplicationViewController.m in Sources */,
 				37F010F51D1BD9BF00C4E209 /* NSObject+HWModel.m in Sources */,
 				37F010BF1D1A325C00C4E209 /* HWNetworkResponse.m in Sources */,
 				377521901D2A626200BEE37F /* NSObject+HWAdd.m in Sources */,

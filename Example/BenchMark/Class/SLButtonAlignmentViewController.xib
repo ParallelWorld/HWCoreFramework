@@ -3,6 +3,7 @@
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SLButtonAlignmentViewController">
@@ -17,67 +18,92 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BpC-dq-w2P">
-                    <rect key="frame" x="222" y="175" width="160" height="250"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-LV-6tB">
+                    <rect key="frame" x="259" y="125" width="83" height="30"/>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.78102601233801328" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="long title" image="ic_home_pressed.png">
+                        <color key="titleColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CZQ-5X-Ec2">
+                    <rect key="frame" x="199" y="420" width="203" height="150"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-LV-6tB">
-                            <rect key="frame" x="45" y="0.0" width="71" height="30"/>
-                            <color key="backgroundColor" red="0.96862745100000003" green="0.78102601233801328" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" title="Button" image="ic_home_pressed.png">
-                                <color key="titleColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-5a-GKO">
+                            <rect key="frame" x="0.0" y="0.0" width="203" height="30"/>
+                            <state key="normal" title="left image, right title --default"/>
+                            <connections>
+                                <action selector="leftImageRightTitle:" destination="-1" eventType="touchUpInside" id="1tG-Ih-mAN"/>
+                            </connections>
                         </button>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-55-KT6">
-                            <rect key="frame" x="-2" y="50" width="164" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pla-AV-PZ3">
+                            <rect key="frame" x="33" y="40" width="138" height="30"/>
+                            <state key="normal" title="left title, right image"/>
+                            <connections>
+                                <action selector="leftTitleRightImage:" destination="-1" eventType="touchUpInside" id="31H-AQ-fO4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-Gg-c6w">
+                            <rect key="frame" x="24" y="80" width="156" height="30"/>
+                            <state key="normal" title="top image, bottom title"/>
+                            <connections>
+                                <action selector="topImageBottomTitle:" destination="-1" eventType="touchUpInside" id="nlI-LL-xID"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFL-95-noL">
+                            <rect key="frame" x="24" y="120" width="156" height="30"/>
+                            <state key="normal" title="top title, bottom image"/>
+                            <connections>
+                                <action selector="topTitleBottomImage:" destination="-1" eventType="touchUpInside" id="AeR-9D-exo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-71-UQj">
+                    <rect key="frame" x="272" y="254" width="46" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t10-cW-HOJ">
+                    <rect key="frame" x="174" y="285" width="252" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZU-Le-eac">
+                            <rect key="frame" x="0.0" y="0.0" width="11" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-55-KT6">
+                            <rect key="frame" x="19" y="0.0" width="204" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="hmt-Yg-UsE"/>
+                            </constraints>
                             <connections>
                                 <action selector="slideValueChanged:" destination="-1" eventType="valueChanged" id="uTL-wY-5Op"/>
                             </connections>
                         </slider>
-                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CZQ-5X-Ec2">
-                            <rect key="frame" x="2" y="100" width="156" height="150"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pla-AV-PZ3">
-                                    <rect key="frame" x="9" y="0.0" width="138" height="30"/>
-                                    <state key="normal" title="left title, right image"/>
-                                    <connections>
-                                        <action selector="leftTitleRightImage:" destination="-1" eventType="touchUpInside" id="31H-AQ-fO4"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-5a-GKO">
-                                    <rect key="frame" x="9" y="40" width="138" height="30"/>
-                                    <state key="normal" title="left image, right title"/>
-                                    <connections>
-                                        <action selector="leftImageRightTitle:" destination="-1" eventType="touchUpInside" id="1tG-Ih-mAN"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-Gg-c6w">
-                                    <rect key="frame" x="0.0" y="80" width="156" height="30"/>
-                                    <state key="normal" title="top image, bottom title"/>
-                                    <connections>
-                                        <action selector="topImageBottomTitle:" destination="-1" eventType="touchUpInside" id="nlI-LL-xID"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFL-95-noL">
-                                    <rect key="frame" x="0.0" y="120" width="156" height="30"/>
-                                    <state key="normal" title="top title, bottom image"/>
-                                    <connections>
-                                        <action selector="topTitleBottomImage:" destination="-1" eventType="touchUpInside" id="AeR-9D-exo"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUw-UZ-BBe">
+                            <rect key="frame" x="231" y="0.0" width="21" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="Rbe-55-KT6" firstAttribute="leading" secondItem="BpC-dq-w2P" secondAttribute="leading" id="AVK-MN-piU"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="BpC-dq-w2P" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UWb-aI-6pR"/>
-                <constraint firstItem="BpC-dq-w2P" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ul1-VV-Ipc"/>
+                <constraint firstItem="t10-cW-HOJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Oho-bG-rBs"/>
+                <constraint firstItem="t10-cW-HOJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PAR-o4-1pe"/>
+                <constraint firstItem="CZQ-5X-Ec2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PuB-57-0hl"/>
+                <constraint firstAttribute="bottom" secondItem="CZQ-5X-Ec2" secondAttribute="bottom" constant="30" id="UWE-ib-AOJ"/>
+                <constraint firstItem="Rbe-55-KT6" firstAttribute="top" secondItem="lJD-71-UQj" secondAttribute="bottom" constant="10" id="XL9-PR-Atp"/>
+                <constraint firstItem="lJD-71-UQj" firstAttribute="centerX" secondItem="Rbe-55-KT6" secondAttribute="centerX" id="bC5-Jb-aId"/>
+                <constraint firstItem="TT1-LV-6tB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="140" id="ep4-bf-Uxj"/>
+                <constraint firstItem="TT1-LV-6tB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pVX-QX-MK7"/>
             </constraints>
+            <point key="canvasLocation" x="788" y="683"/>
         </view>
     </objects>
     <resources>

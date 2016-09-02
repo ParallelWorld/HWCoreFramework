@@ -46,4 +46,8 @@ typedef NS_ENUM(NSUInteger, HWApplicationSystemPhoneType) {
 /// Do phone action.
 + (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
 
++ (BOOL)hw_openAppDetailPageInAppstoreWithID:(NSString *)ID;
+
++ (BOOL)hw_openAppCommentPageInAppstoreWithID:(NSString *)ID;
+
 @end

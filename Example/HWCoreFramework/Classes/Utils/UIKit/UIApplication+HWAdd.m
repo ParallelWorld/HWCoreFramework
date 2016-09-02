@@ -59,6 +59,16 @@
     return [[self sharedApplication] openURL:[NSURL URLWithString:[self _systemPhoneTypeStringForType:type withPhoneNumber:numberString]]];
 }
 
++ (BOOL)hw_openAppDetailPageInAppstoreWithID:(NSString *)ID {
+    NSString *string = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%@", ID];
+    return [[self sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
++ (BOOL)hw_openAppCommentPageInAppstoreWithID:(NSString *)ID {
+    NSString *string = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8", ID];
+    return [[self sharedApplication] openURL:[NSURL URLWithString:string]];
+}
+
 #pragma mark - Private method
 
 + (NSString *)_systemSettingTypeStringForType:(HWApplicationSystemSettingType)type {

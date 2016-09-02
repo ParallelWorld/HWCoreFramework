@@ -35,15 +35,15 @@ typedef NS_ENUM(NSUInteger, HWApplicationSystemPhoneType) {
 @property (nonatomic, readonly) NSString *hw_appBuildVersion;
 
 /// Can jump to system setting page.
-- (BOOL)hw_canOpenSystemSettingOfType:(HWApplicationSystemSettingType)type;
++ (BOOL)hw_canOpenSystemSettingOfType:(HWApplicationSystemSettingType)type;
 
 /// Jump to system setting page.
-- (BOOL)hw_openSystemSettingOfType:(HWApplicationSystemSettingType)type;
++ (BOOL)hw_openSystemSettingOfType:(HWApplicationSystemSettingType)type;
 
 /// Can do phone action.
-- (BOOL)hw_canDoPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
++ (BOOL)hw_canDoPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
 
 /// Do phone action.
-- (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
++ (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString;
 
 @end

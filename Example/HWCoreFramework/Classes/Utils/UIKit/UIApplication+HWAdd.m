@@ -43,23 +43,25 @@
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
-- (BOOL)hw_canOpenSystemSettingOfType:(HWApplicationSystemSettingType)type {
-    return [self canOpenURL:[NSURL URLWithString:[self _systemSettingTypeStringForType:type]]];
++ (BOOL)hw_canOpenSystemSettingOfType:(HWApplicationSystemSettingType)type {
+    return [[self sharedApplication] canOpenURL:[NSURL URLWithString:[self _systemSettingTypeStringForType:type]]];
 }
 
-- (BOOL)hw_openSystemSettingOfType:(HWApplicationSystemSettingType)type {
-    return [self openURL:[NSURL URLWithString:[self _systemSettingTypeStringForType:type]]];
++ (BOOL)hw_openSystemSettingOfType:(HWApplicationSystemSettingType)type {
+    return [[self sharedApplication] openURL:[NSURL URLWithString:[self _systemSettingTypeStringForType:type]]];
 }
 
-- (BOOL)hw_canDoPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
-    return [self canOpenURL:[NSURL URLWithString:[self _systemPhoneTypeStringForType:type withPhoneNumber:numberString]]];
++ (BOOL)hw_canDoPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
+    return [[self sharedApplication] canOpenURL:[NSURL URLWithString:[self _systemPhoneTypeStringForType:type withPhoneNumber:numberString]]];
 }
 
-- (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
-    return [self openURL:[NSURL URLWithString:[self _systemPhoneTypeStringForType:type withPhoneNumber:numberString]]];
++ (BOOL)hw_doPhoneActionOfType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
+    return [[self sharedApplication] openURL:[NSURL URLWithString:[self _systemPhoneTypeStringForType:type withPhoneNumber:numberString]]];
 }
 
-- (NSString *)_systemSettingTypeStringForType:(HWApplicationSystemSettingType)type {
+#pragma mark - Private method
+
++ (NSString *)_systemSettingTypeStringForType:(HWApplicationSystemSettingType)type {
     switch (type) {
         case HWApplicationSystemSettingWIFI: return @"prefs:root=WIFI";
         case HWApplicationSystemSettingBluetooth: return @"prefs:root=Bluetooth";
@@ -70,7 +72,7 @@
     }
 }
 
-- (NSString *)_systemPhoneTypeStringForType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
++ (NSString *)_systemPhoneTypeStringForType:(HWApplicationSystemPhoneType)type withPhoneNumber:(NSString *)numberString {
     switch (type) {
         case HWApplicationSystemPhoneCall: return [@"tel://" stringByAppendingString:numberString];
         case HWApplicationSystemPhoneSendMessage: return [@"sms://" stringByAppendingString:numberString];

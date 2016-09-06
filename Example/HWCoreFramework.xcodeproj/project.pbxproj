@@ -215,12 +215,12 @@
 		3779C7001D0FF706009122CD /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				37585F201D77CCCD00A61C5D /* SLButtonAlignmentViewController.h */,
-				37585F211D77CCCD00A61C5D /* SLButtonAlignmentViewController.m */,
-				37585F221D77CCCD00A61C5D /* SLButtonAlignmentViewController.xib */,
 				37F083021D7969F6000F828E /* SLApplicationViewController.h */,
 				37F083031D7969F6000F828E /* SLApplicationViewController.m */,
 				37F083041D7969F6000F828E /* SLApplicationViewController.xib */,
+				37585F201D77CCCD00A61C5D /* SLButtonAlignmentViewController.h */,
+				37585F211D77CCCD00A61C5D /* SLButtonAlignmentViewController.m */,
+				37585F221D77CCCD00A61C5D /* SLButtonAlignmentViewController.xib */,
 				376EE0131D77CAE100F3843B /* SLTestViewController.h */,
 				376EE0141D77CAE100F3843B /* SLTestViewController.m */,
 				376EE0151D77CAE100F3843B /* SLTestViewController.xib */,

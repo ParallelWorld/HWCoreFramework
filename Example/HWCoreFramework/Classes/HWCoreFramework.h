@@ -1,10 +1,3 @@
-//
-//  HWCoreFramework.h
-//  Pods
-//
-//  Created by 58 on 6/13/16.
-//
-//
 
 #ifndef HWCoreFramework_h
 #define HWCoreFramework_h
@@ -32,4 +25,4 @@
 #import "HWTableRow.h"
 
 
-#endif /* HWCoreFramework_h */
+#endif

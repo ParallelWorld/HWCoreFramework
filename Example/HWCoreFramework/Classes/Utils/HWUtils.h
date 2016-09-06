@@ -1,10 +1,3 @@
-//
-//  HWUtils.h
-//  Pods
-//
-//  Created by 58 on 6/13/16.
-//
-//
 
 #ifndef HWUtils_h
 #define HWUtils_h
@@ -32,4 +25,4 @@
 #import "UIView+HWAdd.h"
 #import "UIViewController+HWAdd.h"
 
-#endif /* HWUtils_h */
+#endif

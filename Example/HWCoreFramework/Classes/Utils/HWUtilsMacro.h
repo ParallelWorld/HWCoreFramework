@@ -1,10 +1,3 @@
-//
-//  HWUtilsMacro.h
-//  HWCoreFramework
-//
-//  Created by 58 on 6/15/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -249,4 +242,4 @@ static inline id hw_box(const char * type, ...)
 }
 
 
-#endif /* HWUtilsMacro_h */
+#endif

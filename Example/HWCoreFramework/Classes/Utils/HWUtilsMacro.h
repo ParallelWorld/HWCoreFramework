@@ -15,21 +15,19 @@
 
 #define HW_SINGLETON_IMPLEMENTATION(className) \
 static className *_instanceOf##className; \
-+ (id)allocWithZone:(NSZone *)zone \
-{ \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-_instanceOf##className = [super allocWithZone:zone]; \
-}); \
-return _instanceOf##className; \
++ (id)allocWithZone:(NSZone *)zone { \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        _instanceOf##className = [super allocWithZone:zone]; \
+    }); \
+    return _instanceOf##className; \
 } \
-+ (instancetype)shared##className##Instance \
-{ \
-static dispatch_once_t onceToken; \
-dispatch_once(&onceToken, ^{ \
-_instanceOf##className = [[self alloc] init]; \
-}); \
-return _instanceOf##className; \
++ (instancetype)shared##className##Instance { \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        _instanceOf##className = [[self alloc] init]; \
+    }); \
+    return _instanceOf##className; \
 }
 
 
@@ -54,16 +52,15 @@ return _instanceOf##className; \
 
 #define HW_CODING_IMPLEMENTATION \
 - (instancetype)initWithCoder:(NSCoder *)aDecoder { \
-self = [super init]; \
-if (self) { \
-[self hw_decode:aDecoder]; \
+    self = [super init]; \
+    if (self) { \
+        [self hw_decode:aDecoder]; \
+    } \
+    return self; \
 } \
-return self; \
-} \
-\
 - (void)encodeWithCoder:(NSCoder *)aCoder { \
-[self hw_encode:aCoder]; \
-} \
+    [self hw_encode:aCoder]; \
+}
 
 
 #pragma mark - UIScreen
@@ -94,7 +91,7 @@ return self; \
 #define HW_DEFINITION(v) NSString *const v = @#v;
 
 
-#pragma mark - static inline C function
+#pragma mark - Static inline C function
 
 static inline bool hw_dispatch_is_main_queue() {
     return pthread_main_np() != 0;

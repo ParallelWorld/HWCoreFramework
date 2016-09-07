@@ -6,17 +6,17 @@
 //
 //
 
-#import "HWTableSource.h"
+#import "HWTableDataSource.h"
 #import "HWUtils.h"
 #import "HWTableSection.h"
 
-@interface HWTableSource ()
+@interface HWTableDataSource ()
 
 @property (nonatomic, strong) NSMutableArray<HWTableSection *> *sectionModels;
 
 @end
 
-@implementation HWTableSource
+@implementation HWTableDataSource
 
 - (void)refreshSource {
     [self _notifyDelegateDidStartRefresh];
@@ -84,7 +84,7 @@
     return [NSStringFromClass(aClass) stringByReplacingOccurrencesOfString:@"Cell" withString:@"CellModel"];
 }
 
-- (HWCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath {
+- (HWTableCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath {
     return [self.sectionModels[indexPath.section] cellModelAtIndex:indexPath.row];
 }
 

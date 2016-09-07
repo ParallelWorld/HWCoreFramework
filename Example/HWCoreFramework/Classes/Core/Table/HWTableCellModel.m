@@ -1,14 +1,15 @@
-//
-//  HWTableCellModel.m
-//  HWCoreFramework
-//
-//  Created by 58 on 8/17/16.
-//  Copyright © 2016 ParallelWorld. All rights reserved.
-//
 
 #import "HWTableCellModel.h"
 
 @implementation HWTableCellModel
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _useAutoLayout = YES;
+    }
+    return self;
+}
 
 - (instancetype)initWithDictionary:(NSDictionary *)dic {
     self = [super init];

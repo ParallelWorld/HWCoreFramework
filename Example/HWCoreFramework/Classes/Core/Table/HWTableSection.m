@@ -7,7 +7,7 @@
 //
 
 #import "HWTableSection.h"
-#import "HWCellModel.h"
+#import "HWTableCellModel.h"
 
 @interface HWTableSection ()
 

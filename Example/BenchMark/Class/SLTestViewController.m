@@ -9,6 +9,7 @@
 #import "SLTestViewController.h"
 #import "SLButtonAlignmentViewController.h"
 #import "SLApplicationViewController.h"
+#import "SLTableViewController.h"
 
 @interface SLTestViewController ()
 
@@ -18,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (IBAction)entryButtonAlignmentController:(id)sender {
@@ -26,6 +26,9 @@
 }
 - (IBAction)entryApplicationController:(id)sender {
     [self.navigationController pushViewController:[SLApplicationViewController new] animated:YES];
+}
+- (IBAction)entryCoreTableController:(id)sender {
+    [self.navigationController pushViewController:[SLTableViewController new] animated:YES];
 }
 
 @end

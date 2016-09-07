@@ -1,28 +1,19 @@
-//
-//  HWBaseTableCell.h
-//  Pods
-//
-//  Created by 58 on 6/14/16.
-//
-//
 
 #import <UIKit/UIKit.h>
+#import "HWViewToControllerActionProtocol.h"
 
-@class HWCellModel;
-
-@protocol HWCellToControllerActionDelegate <NSObject>
-
-- (void)actionFromView:(UIView *)view eventTag:(NSString *)tag context:(id)context;
-
-@end
-
+@class HWTableCellModel;
 
 @interface HWTableCell : UITableViewCell
 
 - (void)updateCell __attribute((objc_requires_super));
 
-@property (nonatomic, weak) HWCellModel *cellModel;
+@property (nonatomic, weak) HWTableCellModel *cellModel;
 
-@property (nonatomic, weak) id <HWCellToControllerActionDelegate> actionDelegate;
+@property (nonatomic, weak) id <HWViewToControllerActionProtocol> actionDelegate;
+
+/// If cell model's `useAutoLayout` is NO, framework will call this method.
+/// Default is return -1;
+- (CGFloat)heightThatNotUseAutoLayout;
 
 @end

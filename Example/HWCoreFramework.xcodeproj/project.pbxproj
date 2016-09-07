@@ -37,8 +37,7 @@
 		379E12F91D65B62F00290AC1 /* UIButton+HWWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E12F81D65B62F00290AC1 /* UIButton+HWWebImage.m */; };
 		37A378981D1008E500FDD444 /* HWCoreFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 37A378971D1008E500FDD444 /* HWCoreFramework.podspec */; };
 		37A378D31D10FBCE00FDD444 /* HWTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378BD1D10FBCE00FDD444 /* HWTableController.m */; };
-		37A378D41D10FBCE00FDD444 /* HWCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378C11D10FBCE00FDD444 /* HWCellModel.m */; };
-		37A378D51D10FBCE00FDD444 /* HWTableSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378C31D10FBCE00FDD444 /* HWTableSource.m */; };
+		37A378D51D10FBCE00FDD444 /* HWTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378C31D10FBCE00FDD444 /* HWTableDataSource.m */; };
 		37A378D61D10FBCE00FDD444 /* NSArray+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378C71D10FBCE00FDD444 /* NSArray+HWAdd.m */; };
 		37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378CB1D10FBCE00FDD444 /* UIImage+HWAdd.m */; };
 		37A378D81D10FBCE00FDD444 /* UIScreen+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A378CD1D10FBCE00FDD444 /* UIScreen+HWAdd.m */; };
@@ -47,6 +46,9 @@
 		37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BB71D1295A800E2ED7F /* UIButton+HWAdd.m */; };
 		37CE4BBB1D12B0B900E2ED7F /* UIViewController+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */; };
 		37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */; };
+		37E1B6241D7FC32300C9A2C2 /* SLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B6221D7FC32300C9A2C2 /* SLTableViewController.m */; };
+		37E1B6251D7FC32300C9A2C2 /* SLTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E1B6231D7FC32300C9A2C2 /* SLTableViewController.xib */; };
+		37E1B6281D7FF9B000C9A2C2 /* SLTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */; };
 		37F0109C1D19030E00C4E209 /* HWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0109B1D19030E00C4E209 /* HWTabBarController.m */; };
 		37F010BC1D1A325000C4E209 /* HWNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010BB1D1A325000C4E209 /* HWNetworkRequest.m */; };
 		37F010BF1D1A325C00C4E209 /* HWNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010BE1D1A325C00C4E209 /* HWNetworkResponse.m */; };
@@ -121,10 +123,8 @@
 		37A378BC1D10FBCE00FDD444 /* HWTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTableController.h; sourceTree = "<group>"; };
 		37A378BD1D10FBCE00FDD444 /* HWTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTableController.m; sourceTree = "<group>"; };
 		37A378BE1D10FBCE00FDD444 /* HWCoreFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCoreFramework.h; sourceTree = "<group>"; };
-		37A378C01D10FBCE00FDD444 /* HWCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWCellModel.h; sourceTree = "<group>"; };
-		37A378C11D10FBCE00FDD444 /* HWCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWCellModel.m; sourceTree = "<group>"; };
-		37A378C21D10FBCE00FDD444 /* HWTableSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTableSource.h; sourceTree = "<group>"; };
-		37A378C31D10FBCE00FDD444 /* HWTableSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTableSource.m; sourceTree = "<group>"; };
+		37A378C21D10FBCE00FDD444 /* HWTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTableDataSource.h; sourceTree = "<group>"; };
+		37A378C31D10FBCE00FDD444 /* HWTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTableDataSource.m; sourceTree = "<group>"; };
 		37A378C61D10FBCE00FDD444 /* NSArray+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HWAdd.h"; sourceTree = "<group>"; };
 		37A378C71D10FBCE00FDD444 /* NSArray+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HWAdd.m"; sourceTree = "<group>"; };
 		37A378C81D10FBCE00FDD444 /* HWUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWUtils.h; sourceTree = "<group>"; };
@@ -145,6 +145,12 @@
 		37CE4BBA1D12B0B900E2ED7F /* UIViewController+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HWAdd.m"; sourceTree = "<group>"; };
 		37CE4BBC1D12B11400E2ED7F /* UIView+HWAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HWAdd.h"; sourceTree = "<group>"; };
 		37CE4BBD1D12B11400E2ED7F /* UIView+HWAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HWAdd.m"; sourceTree = "<group>"; };
+		37E1B6211D7FC32300C9A2C2 /* SLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTableViewController.h; sourceTree = "<group>"; };
+		37E1B6221D7FC32300C9A2C2 /* SLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTableViewController.m; sourceTree = "<group>"; };
+		37E1B6231D7FC32300C9A2C2 /* SLTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLTableViewController.xib; sourceTree = "<group>"; };
+		37E1B6261D7FF9B000C9A2C2 /* SLTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTableViewDataSource.h; sourceTree = "<group>"; };
+		37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTableViewDataSource.m; sourceTree = "<group>"; };
+		37E1B6291D8011A600C9A2C2 /* HWViewToControllerActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWViewToControllerActionProtocol.h; sourceTree = "<group>"; };
 		37F0109A1D19030E00C4E209 /* HWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBarController.h; sourceTree = "<group>"; };
 		37F0109B1D19030E00C4E209 /* HWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBarController.m; sourceTree = "<group>"; };
 		37F010BA1D1A325000C4E209 /* HWNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNetworkRequest.h; sourceTree = "<group>"; };
@@ -224,6 +230,11 @@
 				376EE0131D77CAE100F3843B /* SLTestViewController.h */,
 				376EE0141D77CAE100F3843B /* SLTestViewController.m */,
 				376EE0151D77CAE100F3843B /* SLTestViewController.xib */,
+				37E1B6211D7FC32300C9A2C2 /* SLTableViewController.h */,
+				37E1B6221D7FC32300C9A2C2 /* SLTableViewController.m */,
+				37E1B6231D7FC32300C9A2C2 /* SLTableViewController.xib */,
+				37E1B6261D7FF9B000C9A2C2 /* SLTableViewDataSource.h */,
+				37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -273,8 +284,8 @@
 				379E12DC1D631E8500290AC1 /* HWTableRow.m */,
 				37CE4BB31D128AF600E2ED7F /* HWTableSection.h */,
 				37CE4BB41D128AF600E2ED7F /* HWTableSection.m */,
-				37A378C21D10FBCE00FDD444 /* HWTableSource.h */,
-				37A378C31D10FBCE00FDD444 /* HWTableSource.m */,
+				37A378C21D10FBCE00FDD444 /* HWTableDataSource.h */,
+				37A378C31D10FBCE00FDD444 /* HWTableDataSource.m */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -424,9 +435,8 @@
 		37F010F21D1BCC6600C4E209 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				37E1B6291D8011A600C9A2C2 /* HWViewToControllerActionProtocol.h */,
 				379E12DA1D631D8500290AC1 /* Table */,
-				37A378C01D10FBCE00FDD444 /* HWCellModel.h */,
-				37A378C11D10FBCE00FDD444 /* HWCellModel.m */,
 				37F0109A1D19030E00C4E209 /* HWTabBarController.h */,
 				37F0109B1D19030E00C4E209 /* HWTabBarController.m */,
 			);
@@ -560,6 +570,7 @@
 				3779C7191D0FFC2F009122CD /* ic_home_pressed@3x.png in Resources */,
 				37A378981D1008E500FDD444 /* HWCoreFramework.podspec in Resources */,
 				3779C71C1D0FFC39009122CD /* ic_home@2x.png in Resources */,
+				37E1B6251D7FC32300C9A2C2 /* SLTableViewController.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				37F083061D7969F6000F828E /* SLApplicationViewController.xib in Resources */,
 				3779C7341D0FFC88009122CD /* ic_mine@2x.png in Resources */,
@@ -631,11 +642,12 @@
 			files = (
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				37F010DE1D1B85BF00C4E209 /* UIApplication+HWAdd.m in Sources */,
-				37A378D51D10FBCE00FDD444 /* HWTableSource.m in Sources */,
+				37A378D51D10FBCE00FDD444 /* HWTableDataSource.m in Sources */,
 				37A378D61D10FBCE00FDD444 /* NSArray+HWAdd.m in Sources */,
 				379E12DD1D631E8500290AC1 /* HWTableRow.m in Sources */,
 				37F0109C1D19030E00C4E209 /* HWTabBarController.m in Sources */,
 				37A378D91D10FBCE00FDD444 /* HWTableCell.m in Sources */,
+				37E1B6281D7FF9B000C9A2C2 /* SLTableViewDataSource.m in Sources */,
 				37CE4BB81D1295A800E2ED7F /* UIButton+HWAdd.m in Sources */,
 				37F010D81D1B84D000C4E209 /* NSKeyedUnarchiver+HWAdd.m in Sources */,
 				37F010E71D1B879900C4E209 /* UIFont+HWAdd.m in Sources */,
@@ -643,11 +655,11 @@
 				37CE4BB51D128AF600E2ED7F /* HWTableSection.m in Sources */,
 				37F010DB1D1B851500C4E209 /* NSString+HWAdd.m in Sources */,
 				3775218D1D2A51D500BEE37F /* NSObject+HWAddForKVO.m in Sources */,
+				37E1B6241D7FC32300C9A2C2 /* SLTableViewController.m in Sources */,
 				37F010EA1D1B888000C4E209 /* UIScrollView+HWAdd.m in Sources */,
 				37F010F11D1BCC5500C4E209 /* HWCache.m in Sources */,
 				37F010E41D1B866A00C4E209 /* UIDevice+HWAdd.m in Sources */,
 				37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */,
-				37A378D41D10FBCE00FDD444 /* HWCellModel.m in Sources */,
 				37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */,
 				37F010E11D1B863100C4E209 /* UIColor+HWAdd.m in Sources */,
 				37F083051D7969F6000F828E /* SLApplicationViewController.m in Sources */,

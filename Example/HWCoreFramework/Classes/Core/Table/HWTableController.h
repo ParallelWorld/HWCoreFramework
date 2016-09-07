@@ -1,35 +1,43 @@
-//
-//  HWBaseListController.h
-//  Pods
-//
-//  Created by 58 on 6/14/16.
-//
-//
 
 #import "HWTableCell.h"
-#import "HWTableSource.h"
+#import "HWTableDataSource.h"
 #import "UIScrollView+EmptyDataSet.h"
-
+#import "HWViewToControllerActionProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HWTableController : UIViewController
-<UITableViewDelegate, UITableViewDataSource, HWCellToControllerActionDelegate, HWTableSourceDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+<UITableViewDelegate, UITableViewDataSource, HWViewToControllerActionProtocol, HWTableSourceDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
 @property (nonatomic, assign) BOOL needHeader;
 @property (nonatomic, assign) BOOL needFooter;
 
-@property (nonatomic, strong, null_resettable) UITableView *tableView;
+/// Table view.
+@property (nonatomic, strong, readonly) UITableView *tableView;
 
-@property (nonatomic, strong) HWTableSource *tableSource;
+/// Table controller's data source.
+@property (nonatomic, strong) HWTableDataSource *dataSource;
 
-- (NSArray *)cellClassesContainedInTableView;
 
 - (void)pullDownToRefresh;
 - (void)refresh;
 
-- (void)setupTableView;
-- (void)setupTableSource;
+
+/// Default is `UITableViewStylePlain`.
+/// Subclass can overwrite this method.
+- (UITableViewStyle)tableViewStyle;
+
+/// Default is that table view's edges equal to self.view.
+/// Subclass can overwrite this method to make your table view's constraints.
+- (void)makeTableViewConstraints;
+
+/// Default is no implementation.
+/// Subclass should initialize your data source. The type must be kind of `HWTableDataSource`.
+- (void)setupTableDataSource;
+
+/// Default is return nil.
+/// Subclass need return custom cell classes.
+- (NSArray<Class> *)cellClassesContainedInTableView;
 
 @end
 

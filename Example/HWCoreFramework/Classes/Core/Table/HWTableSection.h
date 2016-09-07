@@ -8,7 +8,7 @@
 @property (nonatomic, copy) NSString *identifier;
 
 - (NSInteger)numberOfCellModelsInSection;
-- (HWCellModel *)cellModelAtIndex:(NSUInteger)index;
+- (__kindof HWCellModel *)cellModelAtIndex:(NSUInteger)index;
 - (NSUInteger)indexOfCellModel:(HWCellModel *)aCellModel;
 
 - (void)addCellModel:(HWCellModel *)aCellModel;

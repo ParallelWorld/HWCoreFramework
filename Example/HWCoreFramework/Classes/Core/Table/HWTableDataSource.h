@@ -2,8 +2,8 @@
 #import <Foundation/Foundation.h>
 #import "HWNetwork.h"
 
-@class HWCellModel;
-@class HWTableSource;
+@class HWTableCellModel;
+@class HWTableDataSource;
 @class HWTableSection;
 @class HWTableSectionMaker;
 
@@ -12,17 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HWTableSourceDelegate <NSObject>
 
 @optional
-- (void)tableSourceDidStartRefresh:(HWTableSource *)source;
-- (void)tableSourceDidEndRefresh:(HWTableSource *)source;
-- (void)tableSourceDidEndRefresh:(HWTableSource *)source error:(NSError *)error;
+- (void)tableSourceDidStartRefresh:(HWTableDataSource *)source;
+- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source;
+- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source error:(NSError *)error;
 
-- (void)tableSourceDidStartLoadMore:(HWTableSource *)source;
-- (void)tableSourceDidEndLoadMore:(HWTableSource *)source;
-- (void)tableSourceDidEndLoadMore:(HWTableSource *)source error:(NSError *)error;
+- (void)tableSourceDidStartLoadMore:(HWTableDataSource *)source;
+- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source;
+- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source error:(NSError *)error;
 
 @end
 
-@interface HWTableSource : NSObject
+@interface HWTableDataSource : NSObject
 
 @property (nonatomic, weak) id <HWTableSourceDelegate> delegate;
 
@@ -37,11 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)identifierForCellClass:(Class)aClass;
 
-- (HWCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section;
-
-- (NSInteger)numberOfSections;
 
 - (NSUInteger)numberOfCellModels;
 
@@ -55,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeAllSections;
 - (void)removeSection:(HWTableSection *)aSection;
 
+@end
+
+@interface HWTableDataSource (TableView)
+- (NSInteger)numberOfSections;
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+- (nullable __kindof HWTableCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 NS_ASSUME_NONNULL_END

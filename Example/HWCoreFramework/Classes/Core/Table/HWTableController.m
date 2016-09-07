@@ -1,48 +1,65 @@
-//
-//  HWBaseListController.m
-//  Pods
-//
-//  Created by 58 on 6/14/16.
-//
-//
 
 #import "HWTableController.h"
-#import "HWTableSource.h"
-#import "Masonry.h"
+#import "HWTableDataSource.h"
 #import "HWTableCell.h"
-#import "HWCellModel.h"
+#import "HWTableCellModel.h"
+#import "Masonry.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MJRefresh.h"
 #import "HWUtils.h"
 
 @interface HWTableController ()
-
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation HWTableController
 
-- (NSArray *)cellClassesContainedInTableView {
-    [self doesNotRecognizeSelector:_cmd];
+- (UITableViewStyle)tableViewStyle {
+    return UITableViewStylePlain;
+}
+
+- (void)makeTableViewConstraints {
+    if (!self.tableView.superview) return;
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuideBottom);
+        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+    }];
+}
+
+- (NSArray<Class> *)cellClassesContainedInTableView {
     return nil;
+}
+
+- (void)setupTableDataSource {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupTableView];
-    [self setupTableSource];
+    // init table view.
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:[self tableViewStyle]];
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    [self.view addSubview:self.tableView];
+    [self makeTableViewConstraints];
     
-    NSAssert(self.tableView, @"tableView不能为空");
-    NSAssert(self.tableSource, @"tableSource不能为空");
-
+    // init table view data source.
+    [self setupTableDataSource];
+    
+    NSAssert([self.dataSource isKindOfClass:[HWTableDataSource class]], @"The type of data source must be kind of `HWTableDataSource`.");
+    
+    // connect table view and table view data source.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
-    self.tableSource.delegate = self;
+    self.dataSource.delegate = self;
     
+    // register cell classes
     for (Class cellClass in [self cellClassesContainedInTableView]) {
-        NSString *cellIdentifier = [self.tableSource identifierForCellClass:cellClass];
+        NSString *cellIdentifier = [self.dataSource identifierForCellClass:cellClass];
         NSString *cellNibPath = [[NSBundle mainBundle] pathForResource:NSStringFromClass(cellClass) ofType:@"nib"];
         if (cellNibPath) {
             [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:cellIdentifier];
@@ -53,53 +70,47 @@
 }
 
 - (void)refresh {
-    [self.tableSource refreshSource];
+    [self.dataSource refreshSource];
 }
 
 - (void)pullDownToRefresh {
     [self.tableView.mj_header beginRefreshing];
 }
 
-- (void)setupTableView {
-    [self doesNotRecognizeSelector:_cmd];
-}
 
-- (void)setupTableSource {
-    [self doesNotRecognizeSelector:_cmd];
-}
 
 #pragma mark - HWBaseTableSourceDelegate
 
-- (void)tableSourceDidStartRefresh:(HWTableSource *)source {
+- (void)tableSourceDidStartRefresh:(HWTableDataSource *)source {
 
 }
 
-- (void)tableSourceDidEndRefresh:(HWTableSource *)source {
+- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source {
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
 }
 
-- (void)tableSourceDidEndRefresh:(HWTableSource *)source error:(NSError *)error {
+- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source error:(NSError *)error {
     [self.tableView.mj_header endRefreshing];
 }
 
-- (void)tableSourceDidStartLoadMore:(HWTableSource *)source {
+- (void)tableSourceDidStartLoadMore:(HWTableDataSource *)source {
     
 }
 
-- (void)tableSourceDidEndLoadMore:(HWTableSource *)source {
+- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source {
     
 }
 
-- (void)tableSourceDidEndLoadMore:(HWTableSource *)source error:(NSError *)error {
+- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source error:(NSError *)error {
     
 }
 
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HWCellModel *cellModel = [self.tableSource cellModelAtIndexPath:indexPath];
-    HWTableCell *cell = (HWTableCell *)[tableView dequeueReusableCellWithIdentifier:cellModel.identifier];
+    HWTableCellModel *cellModel = [self.dataSource cellModelAtIndexPath:indexPath];
+    HWTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.identifier];
     cell.actionDelegate = self;
     cell.cellModel = cellModel;
     [cell updateCell];
@@ -107,21 +118,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.tableSource numberOfRowsInSection:section];
+    return [self.dataSource numberOfRowsInSection:section];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.tableSource numberOfSections];
+    return [self.dataSource numberOfSections];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HWCellModel *cellModel = [self.tableSource cellModelAtIndexPath:indexPath];
-    return [tableView fd_heightForCellWithIdentifier:cellModel.identifier cacheByIndexPath:indexPath configuration:^(HWTableCell *cell) {
-        cell.cellModel = cellModel;
-        [cell updateCell];
-    }];
+    HWTableCellModel *cellModel = [self.dataSource cellModelAtIndexPath:indexPath];
+    if (cellModel.useAutoLayout) {
+        return [tableView fd_heightForCellWithIdentifier:cellModel.identifier cacheByIndexPath:indexPath configuration:^(HWTableCell *cell) {
+            cell.cellModel = cellModel;
+            [cell updateCell];
+        }];
+    } else {
+        return cellModel.cellHeight;
+    }
 }
 
 #pragma mark - DZNEmptyDataSetSource
@@ -133,7 +148,7 @@
 #pragma mark - DZNEmptyDataSetDelegate
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
-    return [self.tableSource numberOfCellModels] == 0;
+    return [self.dataSource numberOfCellModels] == 0;
 }
 
 - (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView {
@@ -158,7 +173,7 @@
         HW_WEAKIFY(self);
         self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             HW_STRONGIFY(self);
-            [self.tableSource refreshSource];
+            [self.dataSource refreshSource];
         }];
     } else {
         self.tableView.mj_header = nil;
@@ -167,18 +182,8 @@
 
 #pragma mark - Getters
 
-- (UIRectEdge)edgesForExtendedLayout {
-    return UIRectEdgeNone;
-}
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    }
-    return _tableView;
-}
+//- (UIRectEdge)edgesForExtendedLayout {
+//    return UIRectEdgeNone;
+//}
 
 @end

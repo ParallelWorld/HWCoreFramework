@@ -13,6 +13,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dic {
     self = [super initWithDictionary:dic];
     if (self) {
+//        self.cellHeight = 200;
     }
     return self;
 }

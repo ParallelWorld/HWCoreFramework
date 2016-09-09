@@ -1,10 +1,3 @@
-//
-//  HWBaseTableSource.m
-//  Pods
-//
-//  Created by 58 on 6/14/16.
-//
-//
 
 #import "HWTableDataSource.h"
 #import "HWUtils.h"

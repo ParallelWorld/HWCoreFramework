@@ -109,11 +109,11 @@
 }
 
 - (void)tableDataSourceDidFinishRefresh:(HWTableDataSource *)source {
-    [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
     if (source.canLoadMore) {
         [self.tableView.mj_footer resetNoMoreData];
     }
+    [self.tableView reloadData];
 }
 
 - (void)tableDataSourceDidStartLoadMore:(HWTableDataSource *)source {
@@ -121,12 +121,12 @@
 }
 
 - (void)tableDataSourceDidFinishLoadMore:(HWTableDataSource *)source {
-    [self.tableView reloadData];
     if (source.canLoadMore) {
         [self.tableView.mj_footer endRefreshing];
     } else {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource

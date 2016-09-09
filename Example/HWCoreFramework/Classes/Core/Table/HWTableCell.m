@@ -8,11 +8,10 @@
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
-    return CGSizeMake(0, [self heightThatNotUseAutoLayout]);
-}
-
-- (CGFloat)heightThatNotUseAutoLayout {
-    return -1;
+    if (self.cellModel.cellHeight == HWTableCellModelUseAutoLayout) {
+        return [super sizeThatFits:size];
+    }
+    return CGSizeMake(0, self.cellModel.cellHeight);
 }
 
 @end

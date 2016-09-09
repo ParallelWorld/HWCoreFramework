@@ -11,6 +11,6 @@
 /// @param view            the action where is from.
 /// @param eventIdentifier to mark the action.
 /// @param context         the data need to pass through.
-- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(id)context;
+- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(void *)context;
 
 @end

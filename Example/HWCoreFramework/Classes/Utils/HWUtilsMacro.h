@@ -87,8 +87,8 @@ static className *_instanceOf##className; \
 
 #pragma mark - Declaration & definition
 
-#define HW_DECLARATION(v) FOUNDATION_EXTERN NSString *const v;
-#define HW_DEFINITION(v) NSString *const v = @#v;
+#define HW_DECLARATION(v) FOUNDATION_EXTERN NSString *const v
+#define HW_DEFINITION(v) NSString *const v = @#v
 
 
 #pragma mark - Static inline C function

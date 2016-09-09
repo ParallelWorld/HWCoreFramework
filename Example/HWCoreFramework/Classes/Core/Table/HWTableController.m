@@ -9,7 +9,7 @@
 #import "HWUtils.h"
 
 @interface HWTableController ()
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong, readwrite) UITableView *tableView;
 @end
 
 @implementation HWTableController
@@ -29,6 +29,7 @@
 }
 
 - (NSArray<Class> *)cellClassesContainedInTableView {
+    [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
 
@@ -36,8 +37,20 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+- (Class)customRefreshHeaderClass {
+    return [MJRefreshNormalHeader class];
+}
+
+- (Class)customRefreshFooterClass {
+    return [MJRefreshAutoNormalFooter class];
+}
+
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // init table view.
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:[self tableViewStyle]];
@@ -67,43 +80,53 @@
             [self.tableView registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
         }
     }
+    
+    // init property
+    self.needHeader = YES;
+    self.needFooter = NO;
 }
 
-- (void)refresh {
-    [self.dataSource refreshSource];
+- (void)pullRefreshWithAnimated:(BOOL)animated {
+    if (animated) {
+        [self.tableView.mj_header beginRefreshing];
+    } else {
+        [self p_headerRefreshAction];
+    }
 }
 
-- (void)pullDownToRefresh {
-    [self.tableView.mj_header beginRefreshing];
+- (void)loadMoreWithAnimated:(BOOL)animated {
+    if (animated) {
+        [self.tableView.mj_footer beginRefreshing];
+    } else {
+        [self p_footerRefreshAction];
+    }
 }
 
+#pragma mark - HWTableDataSourceDelegate
 
-
-#pragma mark - HWBaseTableSourceDelegate
-
-- (void)tableSourceDidStartRefresh:(HWTableDataSource *)source {
+- (void)tableDataSourceDidStartRefresh:(HWTableDataSource *)source {
 
 }
 
-- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source {
+- (void)tableDataSourceDidFinishRefresh:(HWTableDataSource *)source {
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
+    if (source.canLoadMore) {
+        [self.tableView.mj_footer resetNoMoreData];
+    }
 }
 
-- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source error:(NSError *)error {
-    [self.tableView.mj_header endRefreshing];
+- (void)tableDataSourceDidStartLoadMore:(HWTableDataSource *)source {
+
 }
 
-- (void)tableSourceDidStartLoadMore:(HWTableDataSource *)source {
-    
-}
-
-- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source {
-    
-}
-
-- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source error:(NSError *)error {
-    
+- (void)tableDataSourceDidFinishLoadMore:(HWTableDataSource *)source {
+    [self.tableView reloadData];
+    if (source.canLoadMore) {
+        [self.tableView.mj_footer endRefreshing];
+    } else {
+        [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -112,8 +135,7 @@
     HWTableCellModel *cellModel = [self.dataSource cellModelAtIndexPath:indexPath];
     HWTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.identifier];
     cell.actionDelegate = self;
-    cell.cellModel = cellModel;
-    [cell updateCell];
+    [cell configureCellWithModel:cellModel];
     return cell;
 }
 
@@ -129,10 +151,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     HWTableCellModel *cellModel = [self.dataSource cellModelAtIndexPath:indexPath];
-    if (cellModel.useAutoLayout) {
+    if (cellModel.cellHeight == HWTableCellModelUseAutoLayout) {
         return [tableView fd_heightForCellWithIdentifier:cellModel.identifier cacheByIndexPath:indexPath configuration:^(HWTableCell *cell) {
-            cell.cellModel = cellModel;
-            [cell updateCell];
+            [cell configureCellWithModel:cellModel];
         }];
     } else {
         return cellModel.cellHeight;
@@ -148,6 +169,7 @@
 #pragma mark - DZNEmptyDataSetDelegate
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
+    return NO;
     return [self.dataSource numberOfCellModels] == 0;
 }
 
@@ -156,34 +178,45 @@
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
-    [self refresh];
+//    [self refresh];
 }
 
-#pragma mark - HWCellToControllerActionDelegate
+#pragma mark - HWViewToControllerActionProtocol
 
-- (void)actionFromView:(UIView *)view eventTag:(NSString *)tag context:(id)context {
-    
+- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(id)context {
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 #pragma mark - Setters
 
 - (void)setNeedHeader:(BOOL)needHeader {
     _needHeader = needHeader;
-    if (needHeader) {
-        HW_WEAKIFY(self);
-        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            HW_STRONGIFY(self);
-            [self.dataSource refreshSource];
-        }];
-    } else {
-        self.tableView.mj_header = nil;
-    }
+    Class headerClass = [self customRefreshHeaderClass];
+    NSAssert([headerClass isSubclassOfClass:MJRefreshHeader.class], @"Custom refresh header class must be subclass of `MJRefreshHeader`.");
+    self.tableView.mj_header = !needHeader ? nil : [headerClass headerWithRefreshingTarget:self refreshingAction:@selector(p_headerRefreshAction)];
+}
+
+- (void)setNeedFooter:(BOOL)needFooter {
+    _needFooter = needFooter;
+    Class footerClass = [self customRefreshFooterClass];
+    NSAssert([footerClass isSubclassOfClass:MJRefreshFooter.class], @"Custom refresh footer class must be subclass of `MJRefreshFooter`.");
+    self.tableView.mj_footer = !needFooter ? nil : [footerClass footerWithRefreshingTarget:self refreshingAction:@selector(p_footerRefreshAction)];
 }
 
 #pragma mark - Getters
 
-//- (UIRectEdge)edgesForExtendedLayout {
-//    return UIRectEdgeNone;
-//}
+- (UIRectEdge)edgesForExtendedLayout {
+    return UIRectEdgeNone;
+}
+
+#pragma mark - Private method
+
+- (void)p_headerRefreshAction {
+    [self.dataSource refreshSource];
+}
+
+- (void)p_footerRefreshAction {
+    [self.dataSource loadMoreSource];
+}
 
 @end

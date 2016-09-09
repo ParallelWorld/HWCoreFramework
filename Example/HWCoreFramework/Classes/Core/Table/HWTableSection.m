@@ -11,7 +11,7 @@
 
 @interface HWTableSection ()
 
-@property (nonatomic, strong) NSMutableArray<HWCellModel *> *models;
+@property (nonatomic, strong) NSMutableArray<HWTableCellModel *> *models;
 
 @end
 
@@ -21,19 +21,19 @@
     return self.models.count;
 }
 
-- (HWCellModel *)cellModelAtIndex:(NSUInteger)index {
+- (HWTableCellModel *)cellModelAtIndex:(NSUInteger)index {
     return self.models[index];
 }
 
-- (NSUInteger)indexOfCellModel:(HWCellModel *)aCellModel {
+- (NSUInteger)indexOfCellModel:(HWTableCellModel *)aCellModel {
     return [self.models indexOfObject:aCellModel];
 }
 
-- (void)addCellModel:(HWCellModel *)aCellModel {
+- (void)addCellModel:(HWTableCellModel *)aCellModel {
     [self.models addObject:aCellModel];
 }
 
-- (void)insertCellModel:(HWCellModel *)aCellModel atIndex:(NSUInteger)index {
+- (void)insertCellModel:(HWTableCellModel *)aCellModel atIndex:(NSUInteger)index {
     [self.models insertObject:aCellModel atIndex:index];
 }
 
@@ -45,7 +45,7 @@
     [self.models removeObjectAtIndex:index];
 }
 
-- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWCellModel *)aCellModel {
+- (void)replaceCellModelAtIndex:(NSUInteger)index withCellModel:(HWTableCellModel *)aCellModel {
     [self.models replaceObjectAtIndex:index withObject:aCellModel];
 }
 
@@ -57,7 +57,7 @@
     [self.models removeAllObjects];
 }
 
-- (void)removeCellModel:(HWCellModel *)aCellModel {
+- (void)removeCellModel:(HWTableCellModel *)aCellModel {
     [self.models removeObject:aCellModel];
 }
 

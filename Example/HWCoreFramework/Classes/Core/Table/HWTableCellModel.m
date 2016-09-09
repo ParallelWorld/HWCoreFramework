@@ -1,19 +1,14 @@
 
 #import "HWTableCellModel.h"
 
-@implementation HWTableCellModel
+const CGFloat HWTableCellModelUseAutoLayout = -MAXFLOAT;
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _useAutoLayout = YES;
-    }
-    return self;
-}
+@implementation HWTableCellModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dic {
     self = [super init];
     if (self) {
+        _cellHeight = HWTableCellModelUseAutoLayout;
         _dic = dic;
     }
     return self;

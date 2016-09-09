@@ -49,6 +49,8 @@
 		37E1B6241D7FC32300C9A2C2 /* SLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B6221D7FC32300C9A2C2 /* SLTableViewController.m */; };
 		37E1B6251D7FC32300C9A2C2 /* SLTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E1B6231D7FC32300C9A2C2 /* SLTableViewController.xib */; };
 		37E1B6281D7FF9B000C9A2C2 /* SLTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */; };
+		37E1B62C1D81551300C9A2C2 /* SLTable1CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B62B1D81551300C9A2C2 /* SLTable1CellModel.m */; };
+		37E1B62F1D81552700C9A2C2 /* SLTable1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E1B62E1D81552700C9A2C2 /* SLTable1Cell.m */; };
 		37F0109C1D19030E00C4E209 /* HWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F0109B1D19030E00C4E209 /* HWTabBarController.m */; };
 		37F010BC1D1A325000C4E209 /* HWNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010BB1D1A325000C4E209 /* HWNetworkRequest.m */; };
 		37F010BF1D1A325C00C4E209 /* HWNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F010BE1D1A325C00C4E209 /* HWNetworkResponse.m */; };
@@ -151,6 +153,10 @@
 		37E1B6261D7FF9B000C9A2C2 /* SLTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTableViewDataSource.h; sourceTree = "<group>"; };
 		37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTableViewDataSource.m; sourceTree = "<group>"; };
 		37E1B6291D8011A600C9A2C2 /* HWViewToControllerActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWViewToControllerActionProtocol.h; sourceTree = "<group>"; };
+		37E1B62A1D81551300C9A2C2 /* SLTable1CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTable1CellModel.h; sourceTree = "<group>"; };
+		37E1B62B1D81551300C9A2C2 /* SLTable1CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTable1CellModel.m; sourceTree = "<group>"; };
+		37E1B62D1D81552700C9A2C2 /* SLTable1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTable1Cell.h; sourceTree = "<group>"; };
+		37E1B62E1D81552700C9A2C2 /* SLTable1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTable1Cell.m; sourceTree = "<group>"; };
 		37F0109A1D19030E00C4E209 /* HWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTabBarController.h; sourceTree = "<group>"; };
 		37F0109B1D19030E00C4E209 /* HWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTabBarController.m; sourceTree = "<group>"; };
 		37F010BA1D1A325000C4E209 /* HWNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWNetworkRequest.h; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 				37E1B6231D7FC32300C9A2C2 /* SLTableViewController.xib */,
 				37E1B6261D7FF9B000C9A2C2 /* SLTableViewDataSource.h */,
 				37E1B6271D7FF9B000C9A2C2 /* SLTableViewDataSource.m */,
+				37E1B62A1D81551300C9A2C2 /* SLTable1CellModel.h */,
+				37E1B62B1D81551300C9A2C2 /* SLTable1CellModel.m */,
+				37E1B62D1D81552700C9A2C2 /* SLTable1Cell.h */,
+				37E1B62E1D81552700C9A2C2 /* SLTable1Cell.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -661,6 +671,7 @@
 				37F010E41D1B866A00C4E209 /* UIDevice+HWAdd.m in Sources */,
 				37CE4BBE1D12B11400E2ED7F /* UIView+HWAdd.m in Sources */,
 				37A378D71D10FBCE00FDD444 /* UIImage+HWAdd.m in Sources */,
+				37E1B62F1D81552700C9A2C2 /* SLTable1Cell.m in Sources */,
 				37F010E11D1B863100C4E209 /* UIColor+HWAdd.m in Sources */,
 				37F083051D7969F6000F828E /* SLApplicationViewController.m in Sources */,
 				37F010F51D1BD9BF00C4E209 /* NSObject+HWModel.m in Sources */,
@@ -671,6 +682,7 @@
 				37A378D81D10FBCE00FDD444 /* UIScreen+HWAdd.m in Sources */,
 				379E12E71D6412AE00290AC1 /* HWTableCellModel.m in Sources */,
 				37F010CC1D1B819700C4E209 /* NSData+HWAdd.m in Sources */,
+				37E1B62C1D81551300C9A2C2 /* SLTable1CellModel.m in Sources */,
 				37F010ED1D1B88C200C4E209 /* UITableView+HWAdd.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				379E12F91D65B62F00290AC1 /* UIButton+HWWebImage.m in Sources */,

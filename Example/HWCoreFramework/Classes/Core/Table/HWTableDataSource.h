@@ -9,33 +9,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol HWTableSourceDelegate <NSObject>
+
+@protocol HWTableDataSourceDelegate <NSObject>
 
 @optional
-- (void)tableSourceDidStartRefresh:(HWTableDataSource *)source;
-- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source;
-- (void)tableSourceDidEndRefresh:(HWTableDataSource *)source error:(NSError *)error;
 
-- (void)tableSourceDidStartLoadMore:(HWTableDataSource *)source;
-- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source;
-- (void)tableSourceDidEndLoadMore:(HWTableDataSource *)source error:(NSError *)error;
+- (void)tableDataSourceDidStartRefresh:(HWTableDataSource *)source;
+- (void)tableDataSourceDidFinishRefresh:(HWTableDataSource *)source;
+
+- (void)tableDataSourceDidStartLoadMore:(HWTableDataSource *)source;
+- (void)tableDataSourceDidFinishLoadMore:(HWTableDataSource *)source;
 
 @end
 
+
 @interface HWTableDataSource : NSObject
 
-@property (nonatomic, weak) id <HWTableSourceDelegate> delegate;
+@property (nonatomic, weak) id <HWTableDataSourceDelegate> delegate;
+
+@property (nonatomic, strong) NSError *error;
 
 @property (nonatomic, strong) HWNetworkRequest *request;
 
-/// 异步
-- (void)prepareData:(id)data;
+
+@property (nonatomic, assign) BOOL canLoadMore;
 
 - (void)refreshSource;
 - (void)loadMoreSource;
 
+- (void)configureRefreshData:(nullable id)data __attribute((objc_requires_super));
+- (void)configureLoadMoreData:(nullable id)data __attribute((objc_requires_super));;
 
-- (NSString *)identifierForCellClass:(Class)aClass;
 
 
 
@@ -54,9 +58,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface HWTableDataSource (TableView)
+
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfRowsInSection:(NSInteger)section;
-- (nullable __kindof HWTableCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath;
+- (__kindof HWTableCellModel *)cellModelAtIndexPath:(NSIndexPath *)indexPath;
+- (NSString *)identifierForCellClass:(Class)aClass;
+
 @end
 
 NS_ASSUME_NONNULL_END

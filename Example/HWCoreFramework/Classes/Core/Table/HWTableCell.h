@@ -6,9 +6,9 @@
 
 @interface HWTableCell : UITableViewCell
 
-- (void)updateCell __attribute((objc_requires_super));
+- (void)configureCellWithModel:(HWTableCellModel *)cellModel __attribute((objc_requires_super));
 
-@property (nonatomic, weak) HWTableCellModel *cellModel;
+@property (nonatomic, strong, readonly) HWTableCellModel *cellModel;
 
 @property (nonatomic, weak) id <HWViewToControllerActionProtocol> actionDelegate;
 

@@ -3,8 +3,8 @@
 
 @implementation HWTableCell
 
-- (void)updateCell {
-    
+- (void)configureCellWithModel:(HWTableCellModel *)cellModel {
+    _cellModel = cellModel;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {

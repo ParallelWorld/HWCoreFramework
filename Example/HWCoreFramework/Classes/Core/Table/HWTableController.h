@@ -6,10 +6,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HWTableController : UIViewController
-<UITableViewDelegate, UITableViewDataSource, HWViewToControllerActionProtocol, HWTableSourceDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
+@interface HWTableController : UIViewController <UITableViewDelegate, UITableViewDataSource, HWViewToControllerActionProtocol, HWTableDataSourceDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
+/// Default is YES. When set YES, table view will add a header view which class is `customRefreshHeaderClass`.
 @property (nonatomic, assign) BOOL needHeader;
+
+/// Default is NO. When set YES, table view will add a footer view which class is `customRefreshFooterClass`.
 @property (nonatomic, assign) BOOL needFooter;
 
 /// Table view.
@@ -18,10 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// Table controller's data source.
 @property (nonatomic, strong) HWTableDataSource *dataSource;
 
+/// Pull refresh method.
+- (void)pullRefreshWithAnimated:(BOOL)animated;
 
-- (void)pullDownToRefresh;
-- (void)refresh;
-
+/// Load more method.
+- (void)loadMoreWithAnimated:(BOOL)animated;
 
 /// Default is `UITableViewStylePlain`.
 /// Subclass can overwrite this method.
@@ -35,9 +38,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// Subclass should initialize your data source. The type must be kind of `HWTableDataSource`.
 - (void)setupTableDataSource;
 
-/// Default is return nil.
+/// Default is no implementation.
 /// Subclass need return custom cell classes.
 - (NSArray<Class> *)cellClassesContainedInTableView;
+
+/// Should be the subclass of `MJRefreshHeader`.
+/// Subclass can override this method to return custom refresh header.
+/// Default return is `MJRefreshNormalHeader`.
+- (Class)customRefreshHeaderClass;
+
+/// Should be the subclass of `MJRefreshFooter`.
+/// Subclass can override this method to return custom refresh footer.
+/// Default return is `MJRefreshAutoNormalFooter`.
+- (Class)customRefreshFooterClass;
 
 @end
 

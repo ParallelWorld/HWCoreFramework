@@ -8,6 +8,7 @@
 
 #import "SLTableViewController.h"
 #import "SLTableViewDataSource.h"
+#import "SLTable1Cell.h"
 
 @interface SLTableViewController ()
 @property (nonatomic, strong) SLTableViewDataSource *dataSource;
@@ -19,7 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor redColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    self.needFooter = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self pullRefreshWithAnimated:NO];
 }
 
 - (void)setupTableDataSource {
@@ -30,5 +38,13 @@
 //    [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
 //}
+
+- (NSArray<Class> *)cellClassesContainedInTableView {
+    return @[SLTable1Cell.class];
+}
+
+- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(id)context {
+    HW_LOG_VAR(eventIdentifier);
+}
 
 @end

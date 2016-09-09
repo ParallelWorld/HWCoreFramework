@@ -18,66 +18,88 @@
 
 @implementation HWTableDataSource
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _canLoadMore = YES;
+        _sectionModels = [NSMutableArray new];
+    }
+    return self;
+}
+
 - (void)refreshSource {
-    [self _notifyDelegateDidStartRefresh];
+    if ([self.delegate respondsToSelector:@selector(tableDataSourceDidStartRefresh:)]) {
+        [self.delegate tableDataSourceDidStartRefresh:self];
+    }
     
     if (!self.request) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self prepareData:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self _notifyDelegateDidEndRefresh];
+        hw_dispatch_async_on_global_queue(^{
+            [self configureRefreshData:nil];
+            hw_dispatch_async_on_main_queue(^{
+                if ([self.delegate respondsToSelector:@selector(tableDataSourceDidFinishRefresh:)]) {
+                    [self.delegate tableDataSourceDidFinishRefresh:self];
+                }
             });
         });
     } else {
-        HW_WEAKIFY(self);
-        [self.request startWithSuccessHandler:^(HWNetworkResponse * _Nonnull response, id  _Nonnull data) {
-            HW_STRONGIFY(self);
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [self prepareData:data];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self _notifyDelegateDidEndRefresh];
-                });
-            });
-        } failureHandler:^(HWNetworkResponse * _Nonnull response, NSError * _Nonnull error) {
-            HW_STRONGIFY(self);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self _notifyDelegateDidEndRefreshWithError:error];
-            });
-        }];
+//        HW_WEAKIFY(self);
+//        [self.request startWithSuccessHandler:^(HWNetworkResponse * _Nonnull response, id  _Nonnull data) {
+//            HW_STRONGIFY(self);
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                [self prepareData:data];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self _notifyDelegateDidEndRefresh];
+//                });
+//            });
+//        } failureHandler:^(HWNetworkResponse * _Nonnull response, NSError * _Nonnull error) {
+//            HW_STRONGIFY(self);
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self _notifyDelegateDidEndRefreshWithError:error];
+//            });
+//        }];
     }
 }
 
 - (void)loadMoreSource {
-    [self _notifyDelegateDidStartLoadMore];
+    if ([self.delegate respondsToSelector:@selector(tableDataSourceDidStartLoadMore:)]) {
+        [self.delegate tableDataSourceDidStartLoadMore:self];
+    }
     
     if (!self.request) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self prepareData:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self _notifyDelegateDidEndLoadMore];
+        hw_dispatch_async_on_global_queue(^{
+            [self configureLoadMoreData:nil];
+            hw_dispatch_async_on_main_queue(^{
+                if ([self.delegate respondsToSelector:@selector(tableDataSourceDidFinishLoadMore:)]) {
+                    [self.delegate tableDataSourceDidFinishLoadMore:self];
+                }
             });
         });
     } else {
-        HW_WEAKIFY(self);
-        [self.request startWithSuccessHandler:^(HWNetworkResponse * _Nonnull response, id  _Nonnull data) {
-            HW_STRONGIFY(self);
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [self prepareData:data];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self _notifyDelegateDidEndLoadMore];
-                });
-            });
-        } failureHandler:^(HWNetworkResponse * _Nonnull response, NSError * _Nonnull error) {
-            HW_STRONGIFY(self);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self _notifyDelegateDidEndLoadMoreWithError:error];
-            });
-        }];
+//        HW_WEAKIFY(self);
+//        [self.request startWithSuccessHandler:^(HWNetworkResponse * _Nonnull response, id  _Nonnull data) {
+//            HW_STRONGIFY(self);
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                [self prepareData:data];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [self _notifyDelegateDidEndLoadMore];
+//                });
+//            });
+//        } failureHandler:^(HWNetworkResponse * _Nonnull response, NSError * _Nonnull error) {
+//            HW_STRONGIFY(self);
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self _notifyDelegateDidEndLoadMoreWithError:error];
+//            });
+//        }];
     }
 }
 
-- (void)prepareData:(id)data {
-    [self doesNotRecognizeSelector:_cmd];
+- (void)configureRefreshData:(id)data {
+    [self removeAllSections];
+    self.canLoadMore = YES;
+}
+
+- (void)configureLoadMoreData:(id)data {
+    
 }
 
 - (NSString *)identifierForCellClass:(Class)aClass {
@@ -138,49 +160,6 @@
 
 #pragma mark - Private
 
-- (void)_notifyDelegateDidStartRefresh {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidStartRefresh:)]) {
-        [self.delegate tableSourceDidStartRefresh:self];
-    }
-}
-
-- (void)_notifyDelegateDidEndRefresh {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidEndRefresh:)]) {
-        [self.delegate tableSourceDidEndRefresh:self];
-    }
-}
-
-- (void)_notifyDelegateDidEndRefreshWithError:(NSError *)error {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidEndRefresh:error:)]) {
-        [self.delegate tableSourceDidEndRefresh:self error:error];
-    }
-}
-
-- (void)_notifyDelegateDidStartLoadMore {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidStartLoadMore:)]) {
-        [self.delegate tableSourceDidStartLoadMore:self];
-    }
-}
-
-- (void)_notifyDelegateDidEndLoadMore {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidEndLoadMore:)]) {
-        [self.delegate tableSourceDidEndLoadMore:self];
-    }
-}
-
-- (void)_notifyDelegateDidEndLoadMoreWithError:(NSError *)error {
-    if ([self.delegate respondsToSelector:@selector(tableSourceDidEndLoadMore:error:)]) {
-        [self.delegate tableSourceDidEndLoadMore:self error:error];
-    }
-}
-
 #pragma mark - Getters
-
-- (NSMutableArray<HWTableSection *> *)sectionModels {
-    if (!_sectionModels) {
-        _sectionModels = [NSMutableArray new];
-    }
-    return _sectionModels;
-}
 
 @end

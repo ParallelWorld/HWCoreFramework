@@ -43,7 +43,7 @@
     return @[SLTable1Cell.class];
 }
 
-- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(id)context {
+- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(void *)context {
     HW_LOG_VAR(eventIdentifier);
 }
 

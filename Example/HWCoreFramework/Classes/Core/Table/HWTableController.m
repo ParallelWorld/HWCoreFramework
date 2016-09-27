@@ -183,7 +183,7 @@
 
 #pragma mark - HWViewToControllerActionProtocol
 
-- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(id)context {
+- (void)actionFromView:(UIView *)view eventIdentifier:(NSString *)eventIdentifier context:(void *)context {
     [self doesNotRecognizeSelector:_cmd];
 }
 

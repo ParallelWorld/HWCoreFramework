@@ -155,14 +155,4 @@
     return image;
 }
 
-+ (UIImage *)hw_imageWithData:(NSData *)data {
-    if (!data) return nil;
-    UIImage *image;
-    NSString *imageContentType = [NSData hw_contentTypeForImageData:data];
-    return nil;
-//    if ([imageContentType isEqualToString:@"image/gif"]) {
-//        image = [UIImage ]
-//    }
-}
-
 @end

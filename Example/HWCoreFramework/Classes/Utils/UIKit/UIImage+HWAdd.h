@@ -21,6 +21,4 @@
                           borderColor:(UIColor *)borderColor
                        borderLineJoin:(CGLineJoin)borderLineJoin;
 
-+ (UIImage *)hw_imageWithData:(NSData *)data;
-
 @end

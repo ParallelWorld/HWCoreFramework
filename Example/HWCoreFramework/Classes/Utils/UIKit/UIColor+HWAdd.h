@@ -3,4 +3,6 @@
 
 @interface UIColor (HWAdd)
 
++ (UIColor *)hw_randomColor;
+
 @end

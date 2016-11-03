@@ -15,8 +15,14 @@
 
 - (void)hw_reverse;
 
-- (void)hw_push:(id)anObject;
+#pragma mark - Stack & Queue
+
+- (void)hw_push:(id)anObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (id)hw_pop;
+
+- (id)hw_shift;
+
+- (void)hw_unshift:(id)anObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

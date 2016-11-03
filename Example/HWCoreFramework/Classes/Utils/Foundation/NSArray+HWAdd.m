@@ -32,15 +32,42 @@
     }
 }
 
-- (void)hw_push:(id)anObject {
+- (void)hw_push:(id)anObject, ... {
     if (!anObject) return;
+    va_list argList;
+    id arg;
+    va_start(argList, anObject);
     [self addObject:anObject];
+    while ((arg = va_arg(argList, id))) {
+        [self addObject:arg];
+    }
+    va_end(argList);
 }
 
 - (id)hw_pop {
     id lastObject = [self lastObject];
     [self removeLastObject];
     return lastObject;
+}
+
+- (id)hw_shift {
+    id firstObject = self.firstObject;
+    if (firstObject) {
+        [self removeObjectAtIndex:0];
+    }
+    return firstObject;
+}
+
+- (void)hw_unshift:(id)anObject, ... {
+    if (!anObject) return;
+    va_list argList;
+    id arg;
+    va_start(argList, anObject);
+    [self hw_insertObject:anObject atIndex:0];
+    while ((arg = va_arg(argList, id))) {
+        [self hw_insertObject:arg atIndex:0];
+    }
+    va_end(argList);
 }
 
 @end

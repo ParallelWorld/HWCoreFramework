@@ -1,10 +1,3 @@
-//
-//  NSArray+HWAdd.m
-//  Pods
-//
-//  Created by 58 on 6/13/16.
-//
-//
 
 #import "NSArray+HWAdd.h"
 
@@ -37,6 +30,17 @@
     for (NSUInteger i = 0; i < mid; i++) {
         [self exchangeObjectAtIndex:i withObjectAtIndex:(count - (i + 1))];
     }
+}
+
+- (void)hw_push:(id)anObject {
+    if (!anObject) return;
+    [self addObject:anObject];
+}
+
+- (id)hw_pop {
+    id lastObject = [self lastObject];
+    [self removeLastObject];
+    return lastObject;
 }
 
 @end

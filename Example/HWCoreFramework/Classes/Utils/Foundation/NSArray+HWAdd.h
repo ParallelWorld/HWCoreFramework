@@ -1,10 +1,3 @@
-//
-//  NSArray+HWAdd.h
-//  Pods
-//
-//  Created by 58 on 6/13/16.
-//
-//
 
 #import <Foundation/Foundation.h>
 
@@ -21,5 +14,9 @@
 - (void)hw_insertObjects:(NSArray *)objects atIndex:(NSUInteger)index;
 
 - (void)hw_reverse;
+
+- (void)hw_push:(id)anObject;
+
+- (id)hw_pop;
 
 @end

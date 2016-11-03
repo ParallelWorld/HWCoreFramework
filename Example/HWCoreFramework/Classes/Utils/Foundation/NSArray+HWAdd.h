@@ -23,6 +23,6 @@
 
 - (id)hw_shift;
 
-- (void)hw_unshift:(id)anObject, ... NS_REQUIRES_NIL_TERMINATION;
+- (NSUInteger)hw_unshift:(id)anObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

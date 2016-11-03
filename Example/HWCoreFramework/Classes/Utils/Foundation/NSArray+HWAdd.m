@@ -58,8 +58,8 @@
     return firstObject;
 }
 
-- (void)hw_unshift:(id)anObject, ... {
-    if (!anObject) return;
+- (NSUInteger)hw_unshift:(id)anObject, ... {
+    if (!anObject) return self.count;
     va_list argList;
     id arg;
     va_start(argList, anObject);
@@ -68,6 +68,7 @@
         [self hw_insertObject:arg atIndex:0];
     }
     va_end(argList);
+    return self.count;
 }
 
 @end

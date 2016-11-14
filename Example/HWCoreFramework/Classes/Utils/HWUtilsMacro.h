@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <pthread.h>
+#import <mach/mach_time.h>
 
 
 #ifndef HWUtilsMacro_h
@@ -236,6 +237,23 @@ static inline id hw_box(const char * type, ...)
     va_end(variable_param_list);
     
     return object;
+}
+
+static inline CGFloat hw_printBlockRuntime(NSString *identifier, NSUInteger times, void (^block)()) {
+    mach_timebase_info_data_t info;
+    CGFloat duration = -1;
+    if (mach_timebase_info(&info) == KERN_SUCCESS) {
+        uint64_t start = mach_absolute_time();
+        for (NSUInteger i = 0; i < times; i++) {
+            block();
+        }
+        uint64_t end = mach_absolute_time();
+        uint64_t elapsed = end - start;
+        uint64_t nanos = elapsed * info.numer / info.denom;
+        duration = (CGFloat)nanos / NSEC_PER_MSEC;
+    }
+    NSLog(@"%@: %@ms", identifier, @(duration));
+    return duration;
 }
 
 

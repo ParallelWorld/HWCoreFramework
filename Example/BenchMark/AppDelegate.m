@@ -20,8 +20,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:root];
     [self.window makeKeyAndVisible];
-    
-    NSLog(@"程序已经启动");
     return YES;
 }
 

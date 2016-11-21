@@ -48,4 +48,13 @@
     return arr;
 }
 
+- (NSString *)hw_toString {
+    if ([self isKindOfClass:[NSString class]]) {
+        return (NSString *)self;
+    } else if ([self isKindOfClass:[NSNumber class]]){
+        return [(NSNumber *)self stringValue];
+    }
+    return self.description;
+}
+
 @end

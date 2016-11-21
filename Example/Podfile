@@ -1,11 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
 platform :ios, '7.0'
 
-pod 'HWCoreFramework', :path => '../'
-pod 'Aspects'
-pod 'Masonry'
-pod 'UITableView+FDTemplateLayoutCell'
-pod 'MJRefresh'
-pod 'ReactiveCocoa'
-pod 'FDStackView'
+target 'HWCoreFramework' do
+    pod 'HWCoreFramework', :path => '../'
+    pod 'Aspects'
+    pod 'Masonry'
+    pod 'UITableView+FDTemplateLayoutCell'
+    pod 'MJRefresh'
+    pod 'ReactiveCocoa'
+    pod 'FDStackView'
+end

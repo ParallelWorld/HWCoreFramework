@@ -11,4 +11,7 @@
 @interface NSObject (HWAdd)
 - (void)hw_decode:(NSCoder *)decoder;
 - (void)hw_encode:(NSCoder *)encoder;
+
+- (NSString *)hw_toString;
+
 @end

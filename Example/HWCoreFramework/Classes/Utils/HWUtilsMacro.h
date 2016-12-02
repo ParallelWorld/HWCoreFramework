@@ -8,6 +8,10 @@
 #ifndef HWUtilsMacro_h
 #define HWUtilsMacro_h
 
+#pragma mark - Transform
+
+#define HW_TOSTRING(var) [NSString stringWithFormat:@"%@", hw_box(@encode(__typeof__((var))), (var))]
+
 
 #pragma mark - Singleton
 

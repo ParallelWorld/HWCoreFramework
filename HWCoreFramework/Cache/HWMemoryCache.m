@@ -1,5 +1,6 @@
 
 #import "HWMemoryCache.h"
+#import <pthread/pthread.h> 
 
 @implementation HWMemoryCache {
     pthread_mutex_t _lock;

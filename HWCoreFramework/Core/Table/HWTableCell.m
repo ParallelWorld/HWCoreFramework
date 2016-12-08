@@ -1,5 +1,6 @@
 
 #import "HWTableCell.h"
+#import "HWTableCellModel.h"
 
 @implementation HWTableCell
 

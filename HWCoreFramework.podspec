@@ -1,11 +1,3 @@
-#
-# Be sure to run `pod lib lint HWCoreFramework.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'HWCoreFramework'
   s.version          = '0.1.0'
@@ -28,13 +20,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '7.0'
 
-  s.source_files = 'HWCoreFramework/Classes/**/*'
-
-  # s.resource_bundles = {
-  #   'HWCoreFramework' => ['HWCoreFramework/Assets/*.png']
-  # }
-
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.source_files = 'HWCoreFramework/**/*'
 
 s.dependency 'AFNetworking'
 s.dependency 'Aspects'
